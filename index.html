@@ -3,17 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> 𝛑 | BRC-20</title>
-    
+    <meta name="theme-color" content="#050507">
+
+    <!-- Primary Meta Tags -->
+    <title>π (Pi) | The Original Math-Based BRC-20 Token on Bitcoin</title>
+    <meta name="title" content="π (Pi) | The Original Math-Based BRC-20 Token on Bitcoin">
+    <meta name="description" content="𝛑 is the first mathematically-inspired BRC-20 token on Bitcoin. Max supply of 3,141,592,653,589,793. Fair launch. Fully minted. Immutable. Join 120,000+ holders worldwide.">
+    <meta name="keywords" content="pi coin, BRC-20, pi BRC20, bitcoin ordinals, 𝛑 token, pi crypto, pi3.14, ordinals, bitcoin tokens, fair launch, math tokens">
+    <meta name="author" content="π BRC-20 Community">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pi-brc20.com/">
+    <meta property="og:title" content="π (Pi) | The Original Math-Based BRC-20 Token on Bitcoin">
+    <meta property="og:description" content="The first mathematically-inspired BRC-20 token on Bitcoin. Fair launch. Fully minted. Max supply: 3,141,592,653,589,793.">
+    <meta property="og:site_name" content="π BRC-20">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://pi-brc20.com/">
+    <meta property="twitter:title" content="π (Pi) | The Original Math-Based BRC-20 Token on Bitcoin">
+    <meta property="twitter:description" content="The first mathematically-inspired BRC-20 token on Bitcoin. Fair launch. Fully minted.">
+    <meta property="twitter:site" content="@pi3141s">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif' fill='%23FFD700'>𝛑</text></svg>">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "π BRC-20",
+      "description": "The original math-based BRC-20 token on Bitcoin",
+      "url": "https://pi-brc20.com/"
+    }
+    </script>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Babel for JSX -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    
+
+    <!-- Fonts: Instrument Serif (display) + JetBrains Mono (body) + Inter (UI) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- Tailwind Config -->
     <script>
       tailwind.config = {
@@ -22,24 +60,46 @@
             fontFamily: {
               sans: ['Inter', 'sans-serif'],
               mono: ['JetBrains Mono', 'monospace'],
+              serif: ['Instrument Serif', 'serif'],
             },
             colors: {
               primary: {
                 DEFAULT: '#6c5ce7',
                 hover: '#5a4bd1',
+                dim: 'rgba(108, 92, 231, 0.1)',
+              },
+              gold: {
+                DEFAULT: '#FFD700',
+                dim: '#B8860B',
+                deep: '#8B6914',
               },
               accent: {
                 green: '#00ff9d',
-                gold: '#FFD700',
+                red: '#ff3860',
+                cyan: '#00d4ff',
               },
               dark: {
                 bg: '#050507',
                 card: '#0f0f13',
+                surface: '#16161d',
                 border: 'rgba(255, 255, 255, 0.08)'
               }
             },
             animation: {
               'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'marquee': 'marquee 40s linear infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'spin-slow': 'spin 20s linear infinite',
+            },
+            keyframes: {
+              marquee: {
+                '0%': { transform: 'translateX(0%)' },
+                '100%': { transform: 'translateX(-50%)' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0px)' },
+                '50%': { transform: 'translateY(-20px)' },
+              },
             }
           }
         }
@@ -48,33 +108,34 @@
 
     <style>
       /* Custom Scrollbar */
-      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar { width: 8px; height: 8px; }
       ::-webkit-scrollbar-track { background: #050507; }
-      ::-webkit-scrollbar-thumb { background: #333; border-radius: 0px; }
-      ::-webkit-scrollbar-thumb:hover { background: #6c5ce7; }
-      
+      ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #6c5ce7, #FFD700); border-radius: 0px; }
+      ::-webkit-scrollbar-thumb:hover { background: #FFD700; }
+
       body {
         background-color: #050507;
         color: #e5e7eb;
         overflow-x: hidden;
-        cursor: crosshair; /* Indicates interactive background */
+        cursor: crosshair;
+        font-feature-settings: "ss01", "cv11";
       }
 
       /* Noise Texture */
       .bg-noise {
         position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-        pointer-events: none; z-index: 50; opacity: 0.03;
+        pointer-events: none; z-index: 50; opacity: 0.025;
         background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
       }
 
       /* CRT Scanlines */
       .scanlines {
-        background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.1));
+        background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.08) 50%, rgba(0,0,0,0.08));
         background-size: 100% 4px;
         position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-        pointer-events: none; z-index: 51; opacity: 0.3;
+        pointer-events: none; z-index: 51; opacity: 0.25;
       }
-      
+
       /* Glitch Animation */
       @keyframes glitch {
         0% { text-shadow: 2px 0 #D4AF37, -2px 0 #FFFFFF; transform: translate(0); }
@@ -85,48 +146,80 @@
         50% { text-shadow: 2px 0 #D4AF37, -2px 0 #FFFFFF; transform: translate(0); }
         100% { text-shadow: 0 0 0 rgba(0, 0, 0, 0); transform: translate(0); }
       }
-      .glitch-text { animation: glitch 3s infinite alternate-reverse; }
+      .glitch-text { animation: glitch 5s infinite alternate-reverse; }
+
+      /* Floating digits */
+      @keyframes drift {
+        0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+        10% { opacity: 0.4; }
+        90% { opacity: 0.2; }
+        100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+      }
+      .drift { animation: drift 15s linear infinite; }
 
       .text-shadow-glow {
         text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
       }
+
+      .text-shadow-gold {
+        text-shadow: 0 0 30px rgba(255, 215, 0, 0.4), 0 0 60px rgba(255, 215, 0, 0.2);
+      }
+
+      /* Perspective grid */
+      .perspective-grid {
+        background-image:
+          linear-gradient(rgba(108, 92, 231, 0.1) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(108, 92, 231, 0.1) 1px, transparent 1px);
+        background-size: 50px 50px;
+      }
+
+      /* Marquee hover-pause */
+      .marquee-container:hover .animate-marquee {
+        animation-play-state: paused;
+      }
+
+      /* Accordion */
+      details > summary { list-style: none; }
+      details > summary::-webkit-details-marker { display: none; }
+      details[open] .accordion-icon { transform: rotate(45deg); }
+
+      /* Smooth fade for sections */
+      .gradient-mask-b {
+        mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 85%, rgba(0,0,0,0));
+        -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 85%, rgba(0,0,0,0));
+      }
+
+      /* Selection */
+      ::selection { background: #6c5ce7; color: #fff; }
     </style>
-<script type="importmap">
-{
-  "imports": {
-    "react": "https://aistudiocdn.com/react@^19.2.1",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
-    "react/": "https://aistudiocdn.com/react@^19.2.1/",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
-    "recharts": "https://aistudiocdn.com/recharts@^3.5.1",
-    "vite": "https://aistudiocdn.com/vite@^7.2.6",
-    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
 </head>
-<body class="antialiased selection:bg-primary selection:text-white">
+<body class="antialiased">
     <div id="root"></div>
 
     <script type="text/babel" data-type="module">
         import React, { useState, useEffect, useRef, useMemo } from 'https://esm.sh/react@18.2.0';
         import { createRoot } from 'https://esm.sh/react-dom@18.2.0/client';
         import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, PieChart, Pie, Cell, Sector } from 'https://esm.sh/recharts@2.12.2?deps=react@18.2.0,react-dom@18.2.0';
-        import { 
-            Menu, X, ExternalLink, Zap, ArrowRight, Terminal, 
-            Cpu, Activity, Copy, Check, Search, Wallet, 
+        import {
+            Menu, X, ExternalLink, Zap, ArrowRight, Terminal,
+            Cpu, Activity, Copy, Check, Search, Wallet,
             CornerRightDown, PieChart as PieIcon, Users,
             ShoppingBag, Compass, Wrench, Share2, BarChart2,
-            TrendingUp, TrendingDown, RefreshCw, Maximize2, Twitter
+            TrendingUp, TrendingDown, RefreshCw, Maximize2, Twitter,
+            Shield, Sparkles, Lock, Globe, Hash, Infinity as InfinityIcon,
+            Plus, ArrowUpRight, Bitcoin, ChevronRight, Layers,
+            Flame, Trophy, Gauge, Fingerprint, Radio, Send, MessageCircle,
+            ArrowUp, Eye, Calendar, MapPin, Code2
         } from 'https://esm.sh/lucide-react@0.344.0?deps=react@18.2.0';
 
-        // --- CONSTANTS ---
+        // ==========================================
+        // DATA CONSTANTS
+        // ==========================================
         const HOLDERS_DATA = [
             { rank: 1, address: "bc1p0s...w7fg9nqk6jsmsdnmg", percentage: "2.01%", value: "63,094,975,460,872" },
             { rank: 2, address: "bc1pag...rps34treuv9ssnwuh73", percentage: "1.25%", value: "39,217,088,151,975" },
             { rank: 3, address: "bc1p8h...p706prkj76fqae0afy", percentage: "1.11%", value: "34,793,172,982,982" },
-            { rank: 4, address: "bc1pcc...adqd68uvyjdqny3lhr", percentage: "0.97%", value: "30,422,175,550,787.223" },
+            { rank: 4, address: "bc1pcc...adqd68uvyjdqny3lhr", percentage: "0.97%", value: "30,422,175,550,787.22" },
             { rank: 5, address: "bc1pgg...m0zl0v0s82uqnaaygm", percentage: "0.52%", value: "16,445,000,000,000" },
             { rank: 6, address: "bc1qvc...n93v2yyt68hjk8xphr", percentage: "0.40%", value: "12,591,497,210,527.35" },
             { rank: 7, address: "bc1p92...xr8wdkxchn7sskfnhz", percentage: "0.37%", value: "11,600,000,000,000" },
@@ -134,15 +227,15 @@
         ];
 
         const HOLDERS_DISTRIBUTION = [
-            { name: 'Top 10', value: 7.42, color: '#8b5cf6' }, // Violet
-            { name: 'Top 11 ~ 50', value: 5.59, color: '#3b82f6' }, // Blue
-            { name: 'Top 51 ~ 100', value: 3.58, color: '#14b8a6' }, // Teal
-            { name: 'Top 101 ~ 500', value: 14.35, color: '#84cc16' }, // Lime
-            { name: 'Others', value: 69.04, color: '#f43f5e' }, // Rose
+            { name: 'Top 10', value: 7.42, color: '#FFD700' },
+            { name: 'Top 11 ~ 50', value: 5.59, color: '#6c5ce7' },
+            { name: 'Top 51 ~ 100', value: 3.58, color: '#00d4ff' },
+            { name: 'Top 101 ~ 500', value: 14.35, color: '#00ff9d' },
+            { name: 'Others', value: 69.04, color: '#f43f5e' },
         ];
 
         const rawChartData = [
-            { d: '12/25/2023', p: 0.00000119 * 1e8 }, 
+            { d: '12/25/2023', p: 0.00000119 * 1e8 },
             { d: '12/28/2023', p: 0.00000294 * 1e8 },
             { d: '12/30/2023', p: 0.00000550 * 1e8 },
             { d: '1/2/2024', p: 0.00000500 * 1e8 },
@@ -167,29 +260,231 @@
         }));
 
         const ECOSYSTEM_LINKS = [
-            { name: 'UniSat', url: 'https://unisat.io', category: 'Marketplace' },
-            { name: 'OKX Web3', url: 'https://web3.okx.com/explorer/bitcoin/token/brc20/5496738?channelId=unisat', category: 'Marketplace' },
-            { name: 'Magic Eden', url: 'https://magiceden.io/ordinals', category: 'Marketplace' },
-            { name: 'SuperEX', url: 'https://www.superex.com', category: 'Marketplace' },
-            { name: 'DotSwap', url: 'https://www.dotswap.app/', category: 'Marketplace' },
-            { name: 'Ordinals Wallet', url: 'https://ordinalswallet.com/collection/brc20-%F0%9D%9B%91', category: 'Marketplace' },
-            { name: 'XVerse', url: 'https://xverse.app', category: 'Wallet' },
-            { name: 'OrdinalSafe', url: 'https://ordinalsafe.xyz', category: 'Wallet' },
-            { name: 'Hiro Wallet', url: 'https://wallet.hiro.so', category: 'Wallet' },
-            { name: 'Ord.io', url: 'https://ord.io', category: 'Explorer' },
-            { name: 'Ordinal Hub', url: 'https://ordinalshub.com', category: 'Explorer' },
-            { name: 'Ordinals.com', url: 'https://ordinals.com', category: 'Explorer' },
-            { name: 'Luminex', url: 'https://luminex.io', category: 'Explorer' },
-            { name: 'OrdinalScan', url: 'https://ordinalscan.com', category: 'Explorer' },
-            { name: 'Ordinal Tools', url: 'https://ordinalnews.io/ordinaltools/', category: 'Tool' },
-            { name: 'Dune Analytics', url: 'https://dune.com', category: 'Analytics' },
-            { name: 'Twitter (X)', url: 'https://x.com/pi3141s', category: 'Social' },
-            { name: 'Telegram', url: 'https://t.me/brc20picoin', category: 'Social' },
+            { name: 'UniSat', url: 'https://unisat.io', category: 'Marketplace', desc: 'Primary BRC-20 marketplace' },
+            { name: 'OKX Web3', url: 'https://web3.okx.com/explorer/bitcoin/token/brc20/5496738?channelId=unisat', category: 'Marketplace', desc: 'Global exchange gateway' },
+            { name: 'Magic Eden', url: 'https://magiceden.io/ordinals', category: 'Marketplace', desc: 'Ordinals marketplace' },
+            { name: 'SuperEX', url: 'https://www.superex.com', category: 'Marketplace', desc: 'Centralized exchange' },
+            { name: 'DotSwap', url: 'https://www.dotswap.app/', category: 'Marketplace', desc: 'Bitcoin native DEX' },
+            { name: 'Ordinals Wallet', url: 'https://ordinalswallet.com/collection/brc20-%F0%9D%9B%91', category: 'Marketplace', desc: 'Ordinals-focused trading' },
+            { name: 'XVerse', url: 'https://xverse.app', category: 'Wallet', desc: 'Bitcoin & ordinals wallet' },
+            { name: 'OrdinalSafe', url: 'https://ordinalsafe.xyz', category: 'Wallet', desc: 'Secure ordinals wallet' },
+            { name: 'Hiro Wallet', url: 'https://wallet.hiro.so', category: 'Wallet', desc: 'Bitcoin Layer-2 wallet' },
+            { name: 'Ord.io', url: 'https://ord.io', category: 'Explorer', desc: 'Inscription explorer' },
+            { name: 'Ordinal Hub', url: 'https://ordinalshub.com', category: 'Explorer', desc: 'Analytics hub' },
+            { name: 'Ordinals.com', url: 'https://ordinals.com', category: 'Explorer', desc: 'Official explorer' },
+            { name: 'Luminex', url: 'https://luminex.io', category: 'Explorer', desc: 'Runes & BRC-20 explorer' },
+            { name: 'OrdinalScan', url: 'https://ordinalscan.com', category: 'Explorer', desc: 'Deep inscription search' },
+            { name: 'Ordinal Tools', url: 'https://ordinalnews.io/ordinaltools/', category: 'Tool', desc: 'Community toolkit' },
+            { name: 'Dune Analytics', url: 'https://dune.com', category: 'Analytics', desc: 'On-chain data queries' },
+            { name: 'Twitter (X)', url: 'https://x.com/pi3141s', category: 'Social', desc: 'Official account' },
+            { name: 'Telegram', url: 'https://t.me/brc20picoin', category: 'Social', desc: 'Community chat' },
         ];
 
-        // --- COMPONENTS ---
+        const FEATURES = [
+            {
+                icon: InfinityIcon,
+                title: "Mathematical Origin",
+                desc: "The only BRC-20 whose supply equals the first 16 digits of π. A provably fair launch rooted in mathematics, not marketing.",
+                accent: "#FFD700"
+            },
+            {
+                icon: Lock,
+                title: "100% Minted",
+                desc: "All 3,141,592,653,589,793 units distributed through open mint. Zero pre-mine, zero team allocation, zero insiders.",
+                accent: "#00ff9d"
+            },
+            {
+                icon: Bitcoin,
+                title: "Pure Bitcoin Native",
+                desc: "Inscribed directly onto satoshis via Ordinals. Secured by Bitcoin's hashrate. No bridges, no wrappers, no custodians.",
+                accent: "#f7931a"
+            },
+            {
+                icon: Shield,
+                title: "Immutable Protocol",
+                desc: "Deployment cannot be altered. Supply is fixed. Rules are etched on-chain forever. Math does not negotiate.",
+                accent: "#6c5ce7"
+            },
+            {
+                icon: Globe,
+                title: "Global Liquidity",
+                desc: "Traded across UniSat, OKX, Magic Eden, and SuperEX. Deep orderbooks, 120K+ holders, 24/7 markets.",
+                accent: "#00d4ff"
+            },
+            {
+                icon: Sparkles,
+                title: "Cultural Icon",
+                desc: "π is the most recognized symbol in mathematics. Universal language, infinite meaning, zero translation needed.",
+                accent: "#ff3860"
+            },
+        ];
 
-        // 1. Background (Particle Force Field)
+        const ROADMAP = [
+            {
+                date: "May 2023",
+                title: "Genesis Inscription",
+                desc: "π deployed to Bitcoin mainnet via inscription #325bd9...f2f93i0. Max supply locked at 3.141592653589793 quadrillion units.",
+                status: "complete"
+            },
+            {
+                date: "Dec 2023",
+                title: "Full Distribution",
+                desc: "Mint phase completes. 100% of supply distributed through fair open-mint to thousands of wallets worldwide.",
+                status: "complete"
+            },
+            {
+                date: "Q1 2024",
+                title: "Exchange Listings",
+                desc: "Listed on UniSat, OKX Web3, Magic Eden, and Ordinals Wallet. Secondary market liquidity established.",
+                status: "complete"
+            },
+            {
+                date: "Q3 2024",
+                title: "SuperEX CEX Listing",
+                desc: "First centralized exchange listing on SuperEX. Trading pair 𝛑/USDT activated for global access.",
+                status: "complete"
+            },
+            {
+                date: "2025+",
+                title: "Ecosystem Expansion",
+                desc: "Community-driven integrations across Bitcoin L2s, DEX aggregators, and programmable Ordinals infrastructure.",
+                status: "active"
+            },
+            {
+                date: "Ongoing",
+                title: "Decentralized Forever",
+                desc: "No roadmap is a roadmap. π persists as a pure, community-owned asset. No team, no promises, just math.",
+                status: "perpetual"
+            },
+        ];
+
+        const FAQ_DATA = [
+            {
+                q: "What is 𝛑 (Pi BRC-20)?",
+                a: "𝛑 is a fungible token on the Bitcoin blockchain deployed under the BRC-20 standard. Its max supply — 3,141,592,653,589,793 — encodes the first 16 digits of pi, making it the first major mathematically-themed BRC-20 asset."
+            },
+            {
+                q: "Is there a team or pre-mine?",
+                a: "No. 𝛑 launched via open mint with no pre-allocation, no team tokens, and no insider rounds. Every unit was minted one inscription at a time by participants who paid their own Bitcoin transaction fees. The deployer holds no privileged position."
+            },
+            {
+                q: "How do I buy 𝛑?",
+                a: "You need a Bitcoin wallet that supports Ordinals and BRC-20 (such as UniSat, XVerse, or OKX Wallet). Fund it with BTC, then visit UniSat Marketplace, OKX Web3, or Magic Eden and search for the ticker 𝛑. Execute the order — the inscription transfers to your address."
+            },
+            {
+                q: "Why does the supply equal 3.14 quadrillion?",
+                a: "The supply is precisely 3,141,592,653,589,793 — the first 16 significant digits of π. This makes the token's cap mathematically fixed, culturally recognizable, and impossible to replicate with equivalent meaning."
+            },
+            {
+                q: "What is BRC-20 and how is it different from ERC-20?",
+                a: "BRC-20 is a token standard that uses Bitcoin Ordinals to inscribe JSON data onto individual satoshis. Unlike ERC-20 (which relies on Ethereum smart contracts), BRC-20 inherits Bitcoin's security directly without smart contracts, bridges, or validator sets."
+            },
+            {
+                q: "Is 𝛑 safe? Can the protocol be changed?",
+                a: "The deployment inscription is immutable — the protocol rules, max supply, and mint limit are permanently recorded on Bitcoin and cannot be modified by anyone, including the original deployer. Your keys, your 𝛑."
+            },
+            {
+                q: "Where can I verify on-chain data?",
+                a: "You can verify all 𝛑 data on any Bitcoin Ordinals explorer: UniSat, OKX Web3 Explorer, Ordinals.com, Luminex, or OrdinalScan. Search by ticker 𝛑 or deploy number #5496738."
+            },
+            {
+                q: "What gives 𝛑 value?",
+                a: "The same forces that give any BRC-20 asset value: fixed supply, organic demand, liquidity depth, community size, and narrative strength. 𝛑 is uniquely anchored in one of the most universally recognized mathematical constants in human history."
+            },
+        ];
+
+        const HOW_TO_BUY = [
+            { step: "01", title: "Install a Bitcoin Wallet", desc: "Download UniSat, XVerse, or OKX Wallet. These support Ordinals and BRC-20 natively." },
+            { step: "02", title: "Fund with Bitcoin", desc: "Transfer BTC to your wallet. Keep a small amount aside for transaction fees." },
+            { step: "03", title: "Visit a Marketplace", desc: "Open UniSat Marketplace, OKX Web3, or Magic Eden in your browser." },
+            { step: "04", title: "Search Ticker 𝛑", desc: "Find 𝛑 (deploy #5496738). Always verify the inscription ID matches." },
+            { step: "05", title: "Execute Purchase", desc: "Select an offer, confirm the transaction in your wallet, wait for Bitcoin confirmations." },
+            { step: "06", title: "Verify Holdings", desc: "Return to this site's Balance Query tool or check any Ordinals explorer." },
+        ];
+
+        // ==========================================
+        // COMPONENTS
+        // ==========================================
+
+        // Scroll Progress Bar
+        const ScrollProgress = () => {
+            const [scroll, setScroll] = useState(0);
+            useEffect(() => {
+                const handleScroll = () => {
+                    const total = document.documentElement.scrollHeight - window.innerHeight;
+                    const current = window.scrollY;
+                    setScroll((current / total) * 100);
+                };
+                window.addEventListener('scroll', handleScroll, { passive: true });
+                return () => window.removeEventListener('scroll', handleScroll);
+            }, []);
+            return (
+                <div className="fixed top-0 left-0 right-0 h-[2px] z-[60] bg-black/30">
+                    <div className="h-full bg-gradient-to-r from-gold via-primary to-accent-cyan transition-all duration-100 shadow-[0_0_10px_rgba(255,215,0,0.5)]" style={{ width: `${scroll}%` }}></div>
+                </div>
+            );
+        };
+
+        // Back to top button
+        const BackToTop = () => {
+            const [visible, setVisible] = useState(false);
+            useEffect(() => {
+                const toggle = () => setVisible(window.scrollY > 600);
+                window.addEventListener('scroll', toggle, { passive: true });
+                return () => window.removeEventListener('scroll', toggle);
+            }, []);
+            return (
+                <button
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                    className={`fixed bottom-8 right-8 z-50 w-12 h-12 bg-primary/80 hover:bg-primary border border-white/20 backdrop-blur-md flex items-center justify-center text-white transition-all duration-300 shadow-[0_0_20px_rgba(108,92,231,0.4)] hover:shadow-[0_0_30px_rgba(108,92,231,0.6)] ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}
+                    aria-label="Back to top"
+                >
+                    <ArrowUp size={20} />
+                </button>
+            );
+        };
+
+        // Live Ticker Bar (Bloomberg style)
+        const LiveTicker = () => {
+            const tickerItems = [
+                { label: "π / BTC", value: "22,999 sats", change: "+5.71%", pos: true },
+                { label: "Holders", value: "120,591", change: "+127", pos: true },
+                { label: "Market Cap", value: "$160.2M", change: "+2.4%", pos: true },
+                { label: "24h Volume", value: "$1.28M", change: "+18.9%", pos: true },
+                { label: "Max Supply", value: "3.14P", change: "LOCKED", pos: true },
+                { label: "Txns", value: "355,067", change: "+88", pos: true },
+                { label: "BTC", value: "$98,432", change: "+1.2%", pos: true },
+                { label: "Mint Progress", value: "100%", change: "COMPLETE", pos: true },
+            ];
+            const extended = [...tickerItems, ...tickerItems];
+            return (
+                <div className="relative border-b border-white/10 bg-black/60 backdrop-blur-xl overflow-hidden marquee-container">
+                    <div className="absolute left-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-r from-[#050507] to-transparent pointer-events-none"></div>
+                    <div className="absolute right-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-l from-[#050507] to-transparent pointer-events-none"></div>
+                    <div className="flex items-center gap-2 px-4 py-2 text-[10px] font-mono">
+                        <span className="flex items-center gap-1.5 text-accent-green font-bold uppercase tracking-widest bg-accent-green/10 px-2 py-1 border border-accent-green/20 flex-shrink-0">
+                            <Radio size={10} className="animate-pulse" />
+                            Live
+                        </span>
+                        <div className="overflow-hidden flex-1">
+                            <div className="flex animate-marquee whitespace-nowrap">
+                                {extended.map((item, i) => (
+                                    <div key={i} className="flex items-center gap-2 px-6 border-r border-white/5">
+                                        <span className="text-gray-500 uppercase tracking-wider">{item.label}</span>
+                                        <span className="text-white font-bold">{item.value}</span>
+                                        <span className={item.pos ? "text-accent-green" : "text-accent-red"}>
+                                            {item.change}
+                                        </span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        // Background (Particle Force Field)
         const Background = () => {
             const canvasRef = useRef(null);
             const mouseRef = useRef({ x: 0, y: 0, isDown: false });
@@ -202,11 +497,11 @@
 
                 let animationFrameId;
                 let particles = [];
-                
+
                 const PARTICLE_COUNT = 2500;
                 const INTERACTION_RADIUS = 300;
                 const MOUSE_FORCE = 2.0;
-                
+
                 const COLORS = ['#FFD700', '#FDB931', '#6c5ce7', '#ffffff'];
 
                 class Particle {
@@ -230,7 +525,7 @@
                         const angle = (Math.cos(this.x * scale) + Math.sin(this.y * scale)) * chaos;
                         const noise = Math.sin(time * 0.001 + this.x * 0.002) * 0.5;
                         const theta = angle + noise;
-                        
+
                         this.ax = Math.cos(theta) * 0.1;
                         this.ay = Math.sin(theta) * 0.1;
 
@@ -263,7 +558,7 @@
                         if (this.x > w) this.x = 0;
                         if (this.y < 0) this.y = h;
                         if (this.y > h) this.y = 0;
-                        
+
                         if (this.age > this.lifespan) {
                             this.reset(w, h);
                         }
@@ -272,7 +567,7 @@
                     reset(w, h) {
                         this.x = Math.random() * w;
                         this.y = Math.random() * h;
-                        this.vx = 0; 
+                        this.vx = 0;
                         this.vy = 0;
                         this.age = 0;
                         this.lifespan = Math.random() * 200 + 50;
@@ -333,7 +628,7 @@
                 window.addEventListener('mousemove', handleMouseMove);
                 window.addEventListener('mousedown', handleMouseDown);
                 window.addEventListener('mouseup', handleMouseUp);
-                
+
                 init();
                 animate(0);
 
@@ -354,58 +649,76 @@
             );
         };
 
-        // 2. Navbar
+        // Navbar
         const Navbar = () => {
             const [isOpen, setIsOpen] = useState(false);
+            const [scrolled, setScrolled] = useState(false);
+            useEffect(() => {
+                const onScroll = () => setScrolled(window.scrollY > 20);
+                window.addEventListener('scroll', onScroll, { passive: true });
+                return () => window.removeEventListener('scroll', onScroll);
+            }, []);
+
             const links = [
-                { name: 'About 𝛑', href: '#token-info' },
-                { name: 'Exchange', href: '#trade' },
-                { name: 'Ecosystem', href: '#ecosystem' },
+                { name: 'About', href: '#features' },
+                { name: 'Tokenomics', href: '#token-info' },
+                { name: 'Market', href: '#trade' },
                 { name: 'Holders', href: '#statistics' },
+                { name: 'Roadmap', href: '#roadmap' },
+                { name: 'FAQ', href: '#faq' },
+                { name: 'Ecosystem', href: '#ecosystem' },
             ];
 
             return (
-                <nav className="sticky top-0 z-50 w-full border-b border-white/5 bg-[#050507]/80 backdrop-blur-xl transition-colors duration-500">
+                <nav className={`sticky top-0 z-50 w-full border-b transition-all duration-500 ${scrolled ? 'border-white/10 bg-[#050507]/90 backdrop-blur-2xl shadow-[0_0_30px_rgba(0,0,0,0.5)]' : 'border-white/5 bg-[#050507]/70 backdrop-blur-xl'}`}>
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="flex items-center justify-between h-20">
+                        <div className="flex items-center justify-between h-16 md:h-20">
                             <div className="flex-shrink-0 cursor-pointer group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                                <div className="flex items-center gap-2">
-                                    <span className="text-4xl text-primary group-hover:scale-110 transition-transform duration-300 font-serif glitch-text"></span>
-                                    <span className="text-xl font-bold tracking-tight text-white/90 hidden sm:block"></span>
+                                <div className="flex items-center gap-3">
+                                    <div className="relative">
+                                        <span className="text-4xl md:text-5xl text-gold group-hover:scale-110 transition-transform duration-500 font-serif glitch-text leading-none block">𝛑</span>
+                                        <div className="absolute inset-0 text-gold/20 blur-sm text-4xl md:text-5xl font-serif leading-none">𝛑</div>
+                                    </div>
+                                    <div className="hidden sm:flex flex-col leading-none">
+                                        <span className="text-sm font-bold tracking-[0.2em] text-white/90 uppercase font-mono">Pi Coin</span>
+                                        <span className="text-[10px] text-gray-500 tracking-widest uppercase font-mono mt-1">BRC-20 · Bitcoin</span>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div className="hidden md:flex items-center">
-                                <div className="ml-10 flex items-baseline space-x-8">
+                            <div className="hidden lg:flex items-center">
+                                <div className="ml-10 flex items-baseline space-x-1">
                                     {links.map((link) => (
-                                        <a key={link.name} href={link.href} className="text-gray-300 hover:text-white hover:bg-white/5 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">
+                                        <a key={link.name} href={link.href} className="relative text-gray-400 hover:text-white px-4 py-2 text-sm font-medium font-mono uppercase tracking-wider transition-all duration-200 group/link">
                                             {link.name}
+                                            <span className="absolute left-4 right-4 bottom-0 h-[1px] bg-gradient-to-r from-gold via-primary to-transparent scale-x-0 group-hover/link:scale-x-100 transition-transform origin-left"></span>
                                         </a>
                                     ))}
-                                    <a href="https://unisat.io/brc20/%F0%9D%9B%91" target="_blank" rel="noreferrer" className="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all shadow-[0_0_15px_rgba(108,92,231,0.4)] hover:shadow-[0_0_25px_rgba(108,92,231,0.6)] flex items-center gap-2">
-                                        Buy on UniSat <ExternalLink size={14} />
+                                    <a href="https://unisat.io/brc20/%F0%9D%9B%91" target="_blank" rel="noreferrer" className="ml-4 relative group bg-gradient-to-r from-gold to-gold-dim hover:from-gold-dim hover:to-gold text-black px-5 py-2.5 text-xs font-bold font-mono uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(255,215,0,0.3)] hover:shadow-[0_0_30px_rgba(255,215,0,0.5)] flex items-center gap-2 overflow-hidden">
+                                        <span className="relative z-10 flex items-center gap-2">Buy 𝛑 <ArrowUpRight size={14} /></span>
+                                        <div className="absolute inset-0 bg-white/20 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
                                     </a>
                                 </div>
                             </div>
 
-                            <div className="md:hidden flex items-center gap-4">
-                                <button onClick={() => setIsOpen(!isOpen)} className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-white/10 focus:outline-none">
+                            <div className="lg:hidden flex items-center gap-2">
+                                <a href="https://unisat.io/brc20/%F0%9D%9B%91" target="_blank" rel="noreferrer" className="bg-gold text-black px-3 py-2 text-xs font-bold font-mono uppercase tracking-widest">
+                                    Buy
+                                </a>
+                                <button onClick={() => setIsOpen(!isOpen)} className="inline-flex items-center justify-center p-2 text-gray-400 hover:text-white hover:bg-white/10 transition-colors">
                                     {isOpen ? <X size={24} /> : <Menu size={24} />}
                                 </button>
                             </div>
                         </div>
                     </div>
                     {isOpen && (
-                        <div className="md:hidden bg-[#0f0f13] border-b border-white/5">
-                            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                        <div className="lg:hidden bg-[#0f0f13] border-b border-white/5">
+                            <div className="px-4 pt-2 pb-4 space-y-1">
                                 {links.map((link) => (
-                                    <a key={link.name} href={link.href} onClick={() => setIsOpen(false)} className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                                    <a key={link.name} href={link.href} onClick={() => setIsOpen(false)} className="text-gray-300 hover:text-gold hover:bg-white/5 block px-3 py-3 text-sm font-mono uppercase tracking-widest border-l-2 border-transparent hover:border-gold transition-all">
                                         {link.name}
                                     </a>
                                 ))}
-                                <a href="https://unisat.io/brc20/%F0%9D%9B%91" target="_blank" rel="noreferrer" className="w-full text-center mt-4 bg-primary text-white block px-3 py-3 rounded-md text-base font-bold">
-                                    Buy on UniSat
-                                </a>
                             </div>
                         </div>
                     )}
@@ -413,8 +726,8 @@
             );
         };
 
-        // 3. Tilt Card & Stats
-        const TiltCard = ({ children, className = "" }) => {
+        // Tilt Card
+        const TiltCard = ({ children, className = "", glowColor = "rgba(108, 92, 231, 0.15)" }) => {
             const cardRef = useRef(null);
             const [rotation, setRotation] = useState({ x: 0, y: 0 });
             const [opacity, setOpacity] = useState(0);
@@ -427,8 +740,8 @@
                 const y = e.clientY - rect.top;
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
-                const rotateX = ((y - centerY) / centerY) * -10; 
-                const rotateY = ((x - centerX) / centerX) * 10;
+                const rotateX = ((y - centerY) / centerY) * -8;
+                const rotateY = ((x - centerX) / centerX) * 8;
                 setRotation({ x: rotateX, y: rotateY });
                 setPosition({ x, y });
                 setOpacity(1);
@@ -440,8 +753,8 @@
             };
 
             return (
-                <div ref={cardRef} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} className={`relative rounded-xl border border-white/10 bg-[#0f0f13]/80 backdrop-blur-sm p-6 transition-all duration-200 ease-out ${className}`} style={{ transform: `perspective(1000px) rotateX(${rotation.x}deg) rotateY(${rotation.y}deg) scale3d(1, 1, 1)`, willChange: 'transform' }}>
-                    <div className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-300 z-0" style={{ opacity, background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(108, 92, 231, 0.15), transparent 40%)` }} />
+                <div ref={cardRef} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} className={`relative border border-white/10 bg-[#0f0f13]/80 backdrop-blur-sm p-6 transition-all duration-200 ease-out ${className}`} style={{ transform: `perspective(1000px) rotateX(${rotation.x}deg) rotateY(${rotation.y}deg) scale3d(1, 1, 1)`, willChange: 'transform' }}>
+                    <div className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-300 z-0" style={{ opacity, background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, ${glowColor}, transparent 40%)` }} />
                     <div className="relative z-10 h-full flex flex-col">
                         {children}
                     </div>
@@ -457,14 +770,14 @@
                 setTimeout(() => setCopied(false), 2000);
             };
             return (
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start py-2.5 gap-1 group/row border-b border-white/[0.02] last:border-0 hover:bg-white/[0.02] px-2 -mx-2 rounded transition-colors">
-                    <span className="text-gray-500 text-xs uppercase tracking-wider font-mono pt-1 flex items-center gap-2">
-                        <span className="w-1 h-1 bg-gray-700 rounded-full group-hover/row:bg-primary transition-colors"></span>{label}
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start py-3 gap-1 group/row border-b border-white/[0.04] last:border-0 hover:bg-white/[0.02] px-2 -mx-2 transition-colors">
+                    <span className="text-gray-500 text-[10px] uppercase tracking-[0.15em] font-mono pt-1 flex items-center gap-2">
+                        <span className="w-1 h-1 bg-gray-700 group-hover/row:bg-gold transition-colors"></span>{label}
                     </span>
                     <div className="flex items-center gap-2 text-right justify-end">
                         <div className="flex flex-col items-end">
                             {href ? (
-                                <a href={href} target="_blank" rel="noreferrer" className={`font-mono hover:text-primary transition-all flex items-center gap-1 ${subValue ? 'text-sm' : 'text-base'} ${highlight ? 'text-white font-bold text-shadow-glow' : 'text-gray-300'}`}>
+                                <a href={href} target="_blank" rel="noreferrer" className={`font-mono hover:text-gold transition-all flex items-center gap-1 ${subValue ? 'text-sm' : 'text-base'} ${highlight ? 'text-white font-bold text-shadow-glow' : 'text-gray-300'}`}>
                                     {value}<ExternalLink size={10} className="opacity-50" />
                                 </a>
                             ) : (
@@ -475,7 +788,7 @@
                             {subValue && <span className="text-xs font-mono text-accent-green">{subValue}</span>}
                         </div>
                         {isCopyable && (
-                            <button onClick={handleCopy} className="text-gray-600 hover:text-primary transition-colors p-1.5 hover:bg-white/5 rounded-md relative group/btn" title="Copy full value">
+                            <button onClick={handleCopy} className="text-gray-600 hover:text-gold transition-colors p-1.5 hover:bg-white/5 relative group/btn" title="Copy full value" aria-label="Copy">
                                 {copied ? <Check size={14} className="text-accent-green" /> : <Copy size={14} />}
                             </button>
                         )}
@@ -484,12 +797,57 @@
             );
         };
 
+        // Features Section
+        const Features = () => (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border border-white/10">
+                {FEATURES.map((feature, i) => {
+                    const Icon = feature.icon;
+                    return (
+                        <div key={i} className="group relative p-8 border-b md:border-b md:last:border-b-0 border-r-0 md:border-r border-white/10 bg-[#0f0f13]/60 backdrop-blur-sm hover:bg-[#0f0f13] transition-all duration-500 overflow-hidden"
+                             style={{
+                                borderRightWidth: (i + 1) % 3 === 0 ? '0' : undefined,
+                                borderBottomWidth: i >= FEATURES.length - 3 ? '0' : undefined,
+                             }}>
+                            {/* Decorative number */}
+                            <span className="absolute top-4 right-4 text-[8px] text-gray-700 font-mono tracking-widest">
+                                0{i + 1} / 0{FEATURES.length}
+                            </span>
+
+                            {/* Glow effect */}
+                            <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-700" style={{ background: feature.accent }}></div>
+
+                            {/* Icon */}
+                            <div className="relative mb-6 inline-flex">
+                                <div className="w-14 h-14 border border-white/10 flex items-center justify-center group-hover:border-white/30 transition-all duration-500 relative bg-black/40"
+                                     style={{ color: feature.accent }}>
+                                    <Icon size={22} strokeWidth={1.5} />
+                                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                                         style={{ boxShadow: `0 0 30px ${feature.accent}60` }}></div>
+                                </div>
+                            </div>
+
+                            {/* Content */}
+                            <h3 className="text-xl font-serif text-white mb-3 tracking-tight">{feature.title}</h3>
+                            <p className="text-sm text-gray-400 leading-relaxed font-light">{feature.desc}</p>
+
+                            {/* Hover line */}
+                            <div className="absolute bottom-0 left-0 h-[1px] w-0 group-hover:w-full transition-all duration-700" style={{ background: `linear-gradient(90deg, ${feature.accent}, transparent)` }}></div>
+                        </div>
+                    );
+                })}
+            </div>
+        );
+
+        // Token Info
         const TokenInfo = () => (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
-                <TiltCard className="group hover:border-primary/30">
+                <TiltCard className="group hover:border-gold/30" glowColor="rgba(255, 215, 0, 0.15)">
                     <div className="flex items-center gap-3 mb-6 border-b border-white/5 pb-4">
-                        <div className="text-primary p-2 bg-primary/10 rounded-lg"><Cpu size={20} /></div>
-                        <h3 className="text-lg font-bold font-mono text-gray-200 tracking-tight uppercase">Protocol Specs</h3>
+                        <div className="text-gold p-2 bg-gold/10 border border-gold/20"><Cpu size={20} /></div>
+                        <div>
+                            <h3 className="text-lg font-bold font-mono text-gray-200 tracking-tight uppercase">Protocol Specs</h3>
+                            <p className="text-[10px] text-gray-600 font-mono uppercase tracking-widest">Immutable Parameters</p>
+                        </div>
                     </div>
                     <div className="space-y-1">
                         <StatRow label="Standard" value="BRC-20" highlight />
@@ -502,8 +860,11 @@
                 </TiltCard>
                 <TiltCard className="group hover:border-primary/30">
                     <div className="flex items-center gap-3 mb-6 border-b border-white/5 pb-4">
-                        <div className="text-primary p-2 bg-primary/10 rounded-lg"><Terminal size={20} /></div>
-                        <h3 className="text-lg font-bold font-mono text-gray-200 tracking-tight uppercase">Genesis Block</h3>
+                        <div className="text-primary p-2 bg-primary/10 border border-primary/20"><Terminal size={20} /></div>
+                        <div>
+                            <h3 className="text-lg font-bold font-mono text-gray-200 tracking-tight uppercase">Genesis Block</h3>
+                            <p className="text-[10px] text-gray-600 font-mono uppercase tracking-widest">On-Chain Origin</p>
+                        </div>
                     </div>
                     <div className="space-y-1">
                         <StatRow label="Host Chain" value="Bitcoin" highlight />
@@ -513,12 +874,15 @@
                         <StatRow label="Mint Finish" value="2023-12-23 21:35" />
                     </div>
                 </TiltCard>
-                <TiltCard className="group hover:border-primary/30 flex flex-col">
+                <TiltCard className="group hover:border-accent-green/30" glowColor="rgba(0, 255, 157, 0.15)">
                     <div className="flex items-center gap-3 mb-6 border-b border-white/5 pb-4">
-                        <div className="text-primary p-2 bg-primary/10 rounded-lg"><Activity size={20} /></div>
-                        <h3 className="text-lg font-bold font-mono text-gray-200 tracking-tight uppercase">Network Pulse</h3>
+                        <div className="text-accent-green p-2 bg-accent-green/10 border border-accent-green/20"><Activity size={20} /></div>
+                        <div>
+                            <h3 className="text-lg font-bold font-mono text-gray-200 tracking-tight uppercase">Network Pulse</h3>
+                            <p className="text-[10px] text-gray-600 font-mono uppercase tracking-widest">Live Metrics</p>
+                        </div>
                     </div>
-                    <div className="flex items-center gap-3 mb-6 px-4 py-3 bg-accent-green/5 border border-accent-green/10 rounded-lg w-full">
+                    <div className="flex items-center gap-3 mb-6 px-4 py-3 bg-accent-green/5 border border-accent-green/10">
                         <div className="relative flex h-3 w-3">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-green opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-3 w-3 bg-accent-green shadow-[0_0_10px_#00ff9d]"></span>
@@ -534,10 +898,10 @@
                         <StatRow label="Deploy Number" value="#5496738" href="https://web3.okx.com/explorer/bitcoin/token/brc20/5496738?channelId=unisat" />
                     </div>
                     <div className="mt-auto grid grid-cols-2 gap-3">
-                        <a href="https://web3.okx.com/explorer/bitcoin/token/brc20/5496738?channelId=unisat" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 px-3 py-3 bg-white/5 hover:bg-white text-gray-300 hover:text-black font-mono text-xs font-bold uppercase rounded transition-all duration-300 group/btn">
+                        <a href="https://web3.okx.com/explorer/bitcoin/token/brc20/5496738?channelId=unisat" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 px-3 py-3 bg-white/5 hover:bg-white text-gray-300 hover:text-black font-mono text-xs font-bold uppercase transition-all duration-300 group/btn">
                             OKX Scan <ExternalLink size={12} className="group-hover/btn:-translate-y-0.5 transition-transform" />
                         </a>
-                        <a href="https://unisat.io/brc20/%F0%9D%9B%91" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 px-3 py-3 border border-primary/50 text-primary hover:bg-primary hover:text-white font-mono text-xs font-bold uppercase rounded transition-all duration-300 shadow-[0_0_10px_rgba(108,92,231,0.1)] hover:shadow-[0_0_20px_rgba(108,92,231,0.4)] group/btn">
+                        <a href="https://unisat.io/brc20/%F0%9D%9B%91" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 px-3 py-3 border border-primary/50 text-primary hover:bg-primary hover:text-white font-mono text-xs font-bold uppercase transition-all duration-300 shadow-[0_0_10px_rgba(108,92,231,0.1)] hover:shadow-[0_0_20px_rgba(108,92,231,0.4)] group/btn">
                             Unisat <ExternalLink size={12} className="group-hover/btn:-translate-y-0.5 transition-transform" />
                         </a>
                     </div>
@@ -545,7 +909,7 @@
             </div>
         );
 
-        // 4. Holders & Charts
+        // Holders Table
         const HoldersTable = () => {
             const [activeIndex, setActiveIndex] = useState(null);
             const activeItem = activeIndex !== null ? HOLDERS_DISTRIBUTION[activeIndex] : HOLDERS_DISTRIBUTION[HOLDERS_DISTRIBUTION.length - 1];
@@ -557,20 +921,22 @@
                 const { cx, cy, innerRadius, outerRadius, startAngle, endAngle, fill } = props;
                 return (
                     <g>
-                        <Sector cx={cx} cy={cy} innerRadius={innerRadius - 2} outerRadius={outerRadius + 6} startAngle={startAngle} endAngle={endAngle} fill={fill} className="drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] transition-all duration-300" />
+                        <Sector cx={cx} cy={cy} innerRadius={innerRadius - 2} outerRadius={outerRadius + 6} startAngle={startAngle} endAngle={endAngle} fill={fill} />
                         <Sector cx={cx} cy={cy} startAngle={startAngle} endAngle={endAngle} innerRadius={innerRadius - 8} outerRadius={innerRadius - 4} fill={fill} opacity={0.3} />
                     </g>
                 );
             };
 
             return (
-                <div className="flex flex-col xl:flex-row gap-8">
-                    {/* Chart */}
-                    <div className="w-full xl:w-5/12 bg-[#0f0f13]/80 backdrop-blur-md rounded-2xl border border-white/10 p-1 flex flex-col h-fit group transition-all hover:border-primary/30">
+                <div className="flex flex-col xl:flex-row gap-6">
+                    <div className="w-full xl:w-5/12 bg-[#0f0f13]/80 backdrop-blur-md border border-white/10 p-1 flex flex-col h-fit group transition-all hover:border-gold/30">
                         <div className="p-6 h-full flex flex-col">
                             <div className="flex items-center gap-3 mb-8 border-b border-white/5 pb-4">
-                                <div className="p-2 bg-primary/10 rounded-lg text-primary"><PieIcon size={20} /></div>
-                                <h3 className="text-xl font-bold text-white font-mono tracking-tight uppercase">Token Distribution</h3>
+                                <div className="p-2 bg-gold/10 border border-gold/20 text-gold"><PieIcon size={20} /></div>
+                                <div>
+                                    <h3 className="text-xl font-bold text-white font-mono tracking-tight uppercase">Token Distribution</h3>
+                                    <p className="text-[10px] text-gray-600 font-mono uppercase tracking-widest">By Wallet Rank</p>
+                                </div>
                             </div>
                             <div className="h-[320px] w-full relative mb-8 flex items-center justify-center">
                                 <ResponsiveContainer width="100%" height="100%">
@@ -583,19 +949,19 @@
                                     </PieChart>
                                 </ResponsiveContainer>
                                 <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
-                                    <div className="text-center transition-all duration-300 transform scale-100">
-                                        <span className="block text-gray-400 text-xs font-mono font-bold uppercase tracking-widest mb-2" style={{ color: activeItem.color }}>{activeItem.name}</span>
+                                    <div className="text-center">
+                                        <span className="block text-xs font-mono font-bold uppercase tracking-widest mb-2" style={{ color: activeItem.color }}>{activeItem.name}</span>
                                         <span className="block text-4xl md:text-5xl font-bold text-white font-mono tracking-tighter">{activeItem.value}<span className="text-lg text-gray-500">%</span></span>
                                     </div>
                                 </div>
                             </div>
                             <div className="space-y-2 mt-auto">
                                 {HOLDERS_DISTRIBUTION.map((item, index) => (
-                                    <div key={item.name} className={`flex items-center justify-between p-3 rounded-lg cursor-pointer transition-all duration-200 border border-transparent ${activeIndex === index ? 'bg-white/10 border-white/10 scale-[1.02] shadow-lg' : 'hover:bg-white/5 hover:border-white/5'}`} onMouseEnter={() => setActiveIndex(index)} onMouseLeave={() => setActiveIndex(null)}>
+                                    <div key={item.name} className={`flex items-center justify-between p-3 cursor-pointer transition-all duration-200 border border-transparent ${activeIndex === index ? 'bg-white/10 border-white/10 scale-[1.02]' : 'hover:bg-white/5 hover:border-white/5'}`} onMouseEnter={() => setActiveIndex(index)} onMouseLeave={() => setActiveIndex(null)}>
                                         <div className="flex items-center gap-3">
                                             <div className="relative">
-                                                <span className={`block w-3 h-3 rounded-full transition-all duration-300 ${activeIndex === index ? 'shadow-[0_0_10px_currentColor]' : ''}`} style={{ backgroundColor: item.color, color: item.color }}></span>
-                                                {activeIndex === index && <span className="absolute inset-0 rounded-full animate-ping opacity-75" style={{ backgroundColor: item.color }}></span>}
+                                                <span className="block w-3 h-3 transition-all duration-300" style={{ backgroundColor: item.color, boxShadow: activeIndex === index ? `0 0 10px ${item.color}` : 'none' }}></span>
+                                                {activeIndex === index && <span className="absolute inset-0 animate-ping opacity-75" style={{ backgroundColor: item.color }}></span>}
                                             </div>
                                             <span className={`text-sm font-medium transition-colors ${activeIndex === index ? 'text-white' : 'text-gray-400'}`}>{item.name}</span>
                                         </div>
@@ -605,13 +971,15 @@
                             </div>
                         </div>
                     </div>
-                    {/* Table */}
-                    <div className="w-full xl:w-7/12 bg-[#0f0f13]/80 backdrop-blur-md rounded-2xl border border-white/10 overflow-hidden flex flex-col h-fit group hover:border-primary/30 transition-all">
+                    <div className="w-full xl:w-7/12 bg-[#0f0f13]/80 backdrop-blur-md border border-white/10 overflow-hidden flex flex-col h-fit group hover:border-primary/30 transition-all">
                         <div className="p-6 border-b border-white/5 bg-white/[0.02]">
                             <div className="flex items-center gap-3">
-                                <div className="p-2 bg-primary/10 rounded-lg text-primary"><Users size={20} /></div>
-                                <h3 className="text-xl font-bold text-white font-mono uppercase tracking-tight">Top Addresses</h3>
-                                <span className="ml-auto px-2 py-1 bg-accent-green/10 text-accent-green text-[10px] font-mono font-bold uppercase rounded border border-accent-green/20">Live Data</span>
+                                <div className="p-2 bg-primary/10 border border-primary/20 text-primary"><Users size={20} /></div>
+                                <div>
+                                    <h3 className="text-xl font-bold text-white font-mono uppercase tracking-tight">Top Addresses</h3>
+                                    <p className="text-[10px] text-gray-600 font-mono uppercase tracking-widest">Whale Watch</p>
+                                </div>
+                                <span className="ml-auto px-2 py-1 bg-accent-green/10 text-accent-green text-[10px] font-mono font-bold uppercase border border-accent-green/20">Live Data</span>
                             </div>
                         </div>
                         <div className="overflow-x-auto">
@@ -620,41 +988,44 @@
                                     <tr className="bg-black/20 text-gray-500 text-[10px] uppercase tracking-wider font-mono">
                                         <th className="px-6 py-4 font-bold">Rank</th>
                                         <th className="px-6 py-4 font-bold">Address</th>
-                                        <th className="px-6 py-4 text-right font-bold">Percentage</th>
-                                        <th className="px-6 py-4 text-right font-bold">Holdings (SATS)</th>
+                                        <th className="px-6 py-4 text-right font-bold">%</th>
+                                        <th className="px-6 py-4 text-right font-bold hidden md:table-cell">Holdings</th>
                                     </tr>
                                 </thead>
                                 <tbody className="divide-y divide-white/5">
                                     {HOLDERS_DATA.map((holder) => (
                                         <tr key={holder.rank} className="hover:bg-white/[0.03] transition-colors group/row">
                                             <td className="px-6 py-4 whitespace-nowrap">
-                                                <div className={`flex items-center justify-center w-8 h-8 rounded-lg font-mono text-sm font-bold border transition-all ${holder.rank <= 3 ? 'bg-primary/10 border-primary/30 text-primary shadow-[0_0_10px_rgba(108,92,231,0.1)]' : 'bg-white/5 border-white/10 text-gray-500'}`}>{holder.rank}</div>
+                                                <div className={`flex items-center justify-center w-8 h-8 font-mono text-sm font-bold border transition-all ${holder.rank <= 3 ? 'bg-gold/10 border-gold/30 text-gold shadow-[0_0_10px_rgba(255,215,0,0.1)]' : 'bg-white/5 border-white/10 text-gray-500'}`}>{holder.rank}</div>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
-                                                <span className="font-mono text-sm text-gray-400 group-hover/row:text-primary transition-colors cursor-pointer select-all">{holder.address}</span>
+                                                <span className="font-mono text-xs md:text-sm text-gray-400 group-hover/row:text-gold transition-colors cursor-pointer select-all">{holder.address}</span>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-right">
                                                 <div className="flex items-center justify-end gap-2">
-                                                    <div className="w-16 h-1.5 bg-gray-800 rounded-full overflow-hidden">
-                                                        <div className="h-full bg-primary transition-all duration-500" style={{ width: `${parseFloat(holder.percentage) * 20}%` }}></div>
+                                                    <div className="w-12 md:w-16 h-1.5 bg-gray-800 overflow-hidden hidden sm:block">
+                                                        <div className="h-full bg-gradient-to-r from-primary to-gold transition-all duration-500" style={{ width: `${parseFloat(holder.percentage) * 20}%` }}></div>
                                                     </div>
                                                     <span className="text-sm text-gray-300 font-mono font-bold">{holder.percentage}</span>
                                                 </div>
                                             </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-right text-sm text-gray-300 font-mono group-hover/row:text-white transition-colors">{holder.value}</td>
+                                            <td className="px-6 py-4 whitespace-nowrap text-right text-sm text-gray-300 font-mono group-hover/row:text-white transition-colors hidden md:table-cell">{holder.value}</td>
                                         </tr>
                                     ))}
                                 </tbody>
                             </table>
                         </div>
                         <div className="p-4 bg-white/[0.01] border-t border-white/5 text-center">
-                            <a href="https://unisat.io/brc20/%F0%9D%9B%91" target="_blank" rel="noreferrer" className="text-xs font-mono text-gray-500 hover:text-primary transition-colors uppercase tracking-widest">View All Holders on Explorer →</a>
+                            <a href="https://unisat.io/brc20/%F0%9D%9B%91" target="_blank" rel="noreferrer" className="text-xs font-mono text-gray-500 hover:text-gold transition-colors uppercase tracking-widest inline-flex items-center gap-1">
+                                View All Holders <ChevronRight size={12} />
+                            </a>
                         </div>
                     </div>
                 </div>
             );
         };
 
+        // Price Chart
         const PriceChart = () => {
             const [timeRange, setTimeRange] = useState('ALL');
             const filteredData = useMemo(() => {
@@ -670,13 +1041,15 @@
             const startPrice = filteredData[0]?.price || currentPrice;
             const change = ((currentPrice - startPrice) / startPrice) * 100;
             const isPositive = change >= 0;
+            const highPrice = Math.max(...filteredData.map(d => d.price));
+            const lowPrice = Math.min(...filteredData.map(d => d.price));
 
             const CustomTooltip = ({ active, payload, label }) => {
                 if (active && payload && payload.length) {
                     return (
-                        <div className="bg-[#0f0f13] border border-primary/50 p-3 rounded-none shadow-[0_0_15px_rgba(108,92,231,0.3)]">
+                        <div className="bg-[#0f0f13] border border-gold/50 p-3 shadow-[0_0_15px_rgba(255,215,0,0.3)]">
                             <p className="text-gray-500 font-mono text-[10px] uppercase mb-1">{label}</p>
-                            <p className="text-white font-mono font-bold text-lg">{payload[0].value.toLocaleString()} <span className="text-primary text-xs">SATS</span></p>
+                            <p className="text-white font-mono font-bold text-lg">{payload[0].value.toLocaleString()} <span className="text-gold text-xs">SATS</span></p>
                         </div>
                     );
                 }
@@ -684,21 +1057,29 @@
             };
 
             return (
-                <div className="w-full bg-[#0f0f13]/80 backdrop-blur-md rounded-xl border border-white/10 p-6 flex flex-col relative overflow-hidden h-[500px]">
-                    <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4 border-b border-white/5 pb-6">
+                <div className="w-full bg-[#0f0f13]/80 backdrop-blur-md border border-white/10 p-6 flex flex-col relative overflow-hidden h-[550px]">
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 gap-4 border-b border-white/5 pb-6">
                         <div>
                             <div className="flex items-center gap-2 mb-2">
-                                <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
-                                <h3 className="text-sm font-mono font-bold text-gray-400 uppercase tracking-widest">Market / PI-BTC</h3>
+                                <span className="w-2 h-2 bg-gold rounded-full animate-pulse"></span>
+                                <h3 className="text-sm font-mono font-bold text-gray-400 uppercase tracking-widest">Market / 𝛑–BTC</h3>
+                                <span className="text-[10px] text-gray-600 font-mono">· Satoshis per Token</span>
                             </div>
-                            <div className="flex items-baseline gap-4">
+                            <div className="flex items-baseline gap-4 flex-wrap">
                                 <span className="text-4xl font-mono font-bold text-white tracking-tighter">{currentPrice.toLocaleString()} <span className="text-base text-gray-500 font-normal">SATS</span></span>
-                                <span className={`px-2 py-0.5 rounded text-sm font-mono font-bold ${isPositive ? 'bg-accent-green/10 text-accent-green border border-accent-green/20' : 'bg-red-500/10 text-red-500'}`}>{isPositive ? '+' : ''}{change.toFixed(2)}%</span>
+                                <span className={`px-2 py-0.5 text-sm font-mono font-bold border ${isPositive ? 'bg-accent-green/10 text-accent-green border-accent-green/20' : 'bg-accent-red/10 text-accent-red border-accent-red/20'} flex items-center gap-1`}>
+                                    {isPositive ? <TrendingUp size={12} /> : <TrendingDown size={12} />}
+                                    {isPositive ? '+' : ''}{change.toFixed(2)}%
+                                </span>
+                            </div>
+                            <div className="flex gap-4 mt-3 text-[10px] font-mono uppercase tracking-widest">
+                                <span className="text-gray-500">High: <span className="text-accent-green">{highPrice.toLocaleString()}</span></span>
+                                <span className="text-gray-500">Low: <span className="text-accent-red">{lowPrice.toLocaleString()}</span></span>
                             </div>
                         </div>
-                        <div className="flex bg-black/40 p-1 rounded border border-white/10">
+                        <div className="flex bg-black/40 p-1 border border-white/10">
                             {['1M', '3M', 'ALL'].map((range) => (
-                                <button key={range} onClick={() => setTimeRange(range)} className={`px-4 py-1 rounded-sm text-xs font-mono font-bold transition-all ${timeRange === range ? 'bg-primary text-white shadow-[0_0_10px_rgba(108,92,231,0.4)]' : 'text-gray-500 hover:text-white hover:bg-white/5'}`}>{range}</button>
+                                <button key={range} onClick={() => setTimeRange(range)} className={`px-4 py-1 text-xs font-mono font-bold transition-all ${timeRange === range ? 'bg-gold text-black shadow-[0_0_10px_rgba(255,215,0,0.3)]' : 'text-gray-500 hover:text-white hover:bg-white/5'}`}>{range}</button>
                             ))}
                         </div>
                     </div>
@@ -708,15 +1089,15 @@
                             <AreaChart data={filteredData} margin={{ top: 10, right: 0, left: 0, bottom: 0 }}>
                                 <defs>
                                     <linearGradient id="colorPrice" x1="0" y1="0" x2="0" y2="1">
-                                        <stop offset="5%" stopColor="#6c5ce7" stopOpacity={0.5} />
-                                        <stop offset="95%" stopColor="#6c5ce7" stopOpacity={0} />
+                                        <stop offset="5%" stopColor="#FFD700" stopOpacity={0.4} />
+                                        <stop offset="95%" stopColor="#FFD700" stopOpacity={0} />
                                     </linearGradient>
                                 </defs>
                                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" vertical={true} horizontal={true} />
                                 <XAxis dataKey="date" stroke="#4b5563" fontSize={10} fontFamily="monospace" tickLine={false} axisLine={false} minTickGap={50} tickFormatter={(val) => { const d = new Date(val); return `${d.getMonth() + 1}/${d.getDate()}`; }} />
                                 <YAxis stroke="#4b5563" fontSize={10} fontFamily="monospace" tickLine={false} axisLine={false} tickFormatter={(value) => `${value}`} orientation="right" width={40} />
-                                <RechartsTooltip content={<CustomTooltip />} cursor={{ stroke: '#6c5ce7', strokeWidth: 1, strokeDasharray: '4 4' }} />
-                                <Area type="step" dataKey="price" stroke="#6c5ce7" strokeWidth={2} fillOpacity={1} fill="url(#colorPrice)" activeDot={{ r: 4, fill: '#fff', stroke: '#6c5ce7', strokeWidth: 2 }} animationDuration={500} />
+                                <RechartsTooltip content={<CustomTooltip />} cursor={{ stroke: '#FFD700', strokeWidth: 1, strokeDasharray: '4 4' }} />
+                                <Area type="step" dataKey="price" stroke="#FFD700" strokeWidth={2} fillOpacity={1} fill="url(#colorPrice)" activeDot={{ r: 4, fill: '#fff', stroke: '#FFD700', strokeWidth: 2 }} animationDuration={500} />
                             </AreaChart>
                         </ResponsiveContainer>
                     </div>
@@ -724,14 +1105,149 @@
             );
         };
 
+        // How to Buy
+        const HowToBuy = () => (
+            <div className="relative">
+                {/* Decorative pi digits */}
+                <div className="absolute top-0 right-0 text-[120px] font-serif text-gold/5 leading-none select-none pointer-events-none hidden md:block">
+                    3.14159
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border border-white/10 relative z-10">
+                    {HOW_TO_BUY.map((item, i) => (
+                        <div key={i} className="relative group p-8 border-b md:border-b border-white/10 bg-[#0f0f13]/60 hover:bg-[#0f0f13] transition-all duration-500 overflow-hidden"
+                             style={{
+                                borderRightWidth: (i + 1) % 3 === 0 ? '0' : '1px',
+                                borderRight: (i + 1) % 3 === 0 ? 'none' : '1px solid rgba(255,255,255,0.1)',
+                                borderBottomWidth: i >= HOW_TO_BUY.length - 3 ? '0' : '1px',
+                             }}>
+                            <div className="flex items-start gap-6">
+                                <div className="flex-shrink-0">
+                                    <div className="text-5xl font-serif text-gold/40 group-hover:text-gold transition-colors duration-500 leading-none">
+                                        {item.step}
+                                    </div>
+                                </div>
+                                <div className="flex-1">
+                                    <h3 className="text-lg font-bold font-mono text-white mb-3 uppercase tracking-tight group-hover:text-gold transition-colors duration-500">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-sm text-gray-400 leading-relaxed">
+                                        {item.desc}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="absolute bottom-0 left-0 h-[1px] w-0 bg-gold group-hover:w-full transition-all duration-700"></div>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-8 flex flex-col md:flex-row gap-4 items-center justify-between bg-gradient-to-r from-gold/5 to-primary/5 border border-white/10 p-6">
+                    <div className="flex items-center gap-4">
+                        <Wallet className="text-gold flex-shrink-0" size={24} />
+                        <div>
+                            <p className="text-white font-mono font-bold text-sm uppercase tracking-wide">Ready to Acquire 𝛑?</p>
+                            <p className="text-gray-400 text-xs font-mono">Start with UniSat — the primary BRC-20 marketplace</p>
+                        </div>
+                    </div>
+                    <a href="https://unisat.io/brc20/%F0%9D%9B%91" target="_blank" rel="noreferrer" className="bg-gold hover:bg-gold-dim text-black px-6 py-3 font-bold font-mono text-xs uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(255,215,0,0.3)] hover:shadow-[0_0_30px_rgba(255,215,0,0.5)] flex items-center gap-2 whitespace-nowrap">
+                        Launch UniSat <ArrowUpRight size={14} />
+                    </a>
+                </div>
+            </div>
+        );
+
+        // Roadmap
+        const Roadmap = () => (
+            <div className="relative">
+                {/* Vertical line */}
+                <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-white/10 to-transparent -translate-x-1/2 md:translate-x-0"></div>
+
+                <div className="space-y-12">
+                    {ROADMAP.map((item, i) => {
+                        const isLeft = i % 2 === 0;
+                        const isComplete = item.status === 'complete';
+                        const isActive = item.status === 'active';
+                        return (
+                            <div key={i} className={`relative flex items-start gap-6 md:gap-0 ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                                {/* Timeline dot */}
+                                <div className="absolute left-8 md:left-1/2 -translate-x-1/2 top-2 z-10">
+                                    <div className={`w-4 h-4 border-2 ${isComplete ? 'bg-accent-green border-accent-green shadow-[0_0_15px_#00ff9d]' : isActive ? 'bg-gold border-gold animate-pulse shadow-[0_0_15px_#FFD700]' : 'bg-[#0f0f13] border-white/30'}`}></div>
+                                </div>
+
+                                {/* Spacer */}
+                                <div className="hidden md:block md:w-1/2"></div>
+
+                                {/* Content */}
+                                <div className={`flex-1 ml-16 md:ml-0 ${isLeft ? 'md:pl-12 md:text-left' : 'md:pr-12 md:text-right'}`}>
+                                    <div className="inline-flex items-center gap-2 mb-2 px-2 py-1 border border-white/10 bg-black/40">
+                                        <Calendar size={10} className="text-gold" />
+                                        <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-gold">{item.date}</span>
+                                        {isComplete && <span className="text-[10px] text-accent-green font-mono font-bold uppercase">✓ Done</span>}
+                                        {isActive && <span className="text-[10px] text-gold font-mono font-bold uppercase animate-pulse">● Live</span>}
+                                    </div>
+                                    <h3 className="text-xl md:text-2xl font-serif text-white mb-2">{item.title}</h3>
+                                    <p className="text-sm text-gray-400 leading-relaxed max-w-md md:max-w-none md:inline-block">{item.desc}</p>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+        );
+
+        // FAQ
+        const FAQ = () => (
+            <div className="max-w-4xl mx-auto">
+                <div className="space-y-3">
+                    {FAQ_DATA.map((item, i) => (
+                        <details key={i} className="group border border-white/10 bg-[#0f0f13]/60 hover:bg-[#0f0f13] transition-colors overflow-hidden">
+                            <summary className="cursor-pointer p-6 flex items-start justify-between gap-4 hover:bg-white/[0.02] transition-colors">
+                                <div className="flex items-start gap-4 flex-1">
+                                    <span className="text-gold font-mono text-xs font-bold flex-shrink-0 mt-1">
+                                        {String(i + 1).padStart(2, '0')} /
+                                    </span>
+                                    <h3 className="text-base md:text-lg font-medium text-white font-serif leading-snug">
+                                        {item.q}
+                                    </h3>
+                                </div>
+                                <div className="flex-shrink-0 mt-1 accordion-icon transition-transform duration-300">
+                                    <Plus size={18} className="text-gold" />
+                                </div>
+                            </summary>
+                            <div className="px-6 pb-6 pt-2 pl-16">
+                                <div className="text-sm text-gray-400 leading-relaxed border-l-2 border-gold/30 pl-4">
+                                    {item.a}
+                                </div>
+                            </div>
+                        </details>
+                    ))}
+                </div>
+
+                <div className="mt-12 text-center p-8 border border-white/10 bg-gradient-to-br from-primary/5 to-gold/5">
+                    <MessageCircle className="text-gold mx-auto mb-3" size={32} />
+                    <h3 className="text-xl font-serif text-white mb-2">Still have questions?</h3>
+                    <p className="text-sm text-gray-400 mb-6">Join the community. Ask the network.</p>
+                    <div className="flex flex-wrap gap-3 justify-center">
+                        <a href="https://x.com/pi3141s" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 border border-white/10 text-white hover:border-white hover:bg-white/5 font-mono text-xs uppercase tracking-widest transition-all">
+                            <Twitter size={14} /> Twitter
+                        </a>
+                        <a href="https://t.me/brc20picoin" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 border border-white/10 text-white hover:border-white hover:bg-white/5 font-mono text-xs uppercase tracking-widest transition-all">
+                            <Send size={14} /> Telegram
+                        </a>
+                    </div>
+                </div>
+            </div>
+        );
+
+        // Ecosystem
         const Ecosystem = () => {
             const CATEGORY_ICONS = {
-                Marketplace: <ShoppingBag size={20} />,
-                Wallet: <Wallet size={20} />,
-                Explorer: <Compass size={20} />,
-                Tool: <Wrench size={20} />,
-                Social: <Share2 size={20} />,
-                Analytics: <BarChart2 size={20} />,
+                Marketplace: <ShoppingBag size={18} />,
+                Wallet: <Wallet size={18} />,
+                Explorer: <Compass size={18} />,
+                Tool: <Wrench size={18} />,
+                Social: <Share2 size={18} />,
+                Analytics: <BarChart2 size={18} />,
             };
 
             const TiltLinkCard = ({ link }) => {
@@ -747,8 +1263,8 @@
                     const y = e.clientY - rect.top;
                     const centerX = rect.width / 2;
                     const centerY = rect.height / 2;
-                    const rotateX = ((y - centerY) / centerY) * -12; 
-                    const rotateY = ((x - centerX) / centerX) * 12;
+                    const rotateX = ((y - centerY) / centerY) * -10;
+                    const rotateY = ((x - centerX) / centerX) * 10;
                     setRotation({ x: rotateX, y: rotateY });
                     setPosition({ x, y });
                     setOpacity(1);
@@ -760,15 +1276,18 @@
                 };
 
                 return (
-                    <a ref={cardRef} href={link.url} target="_blank" rel="noreferrer" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} className="relative flex items-center justify-between p-4 rounded-xl bg-[#050507]/50 border border-white/10 hover:border-primary/50 transition-all duration-200 group overflow-hidden" style={{ transform: `perspective(1000px) rotateX(${rotation.x}deg) rotateY(${rotation.y}deg) scale3d(1, 1, 1)`, willChange: 'transform' }}>
-                        <div className="absolute -inset-px opacity-0 transition-opacity duration-300 pointer-events-none" style={{ opacity, background: `radial-gradient(400px circle at ${position.x}px ${position.y}px, rgba(255, 255, 255, 0.08), transparent 40%)` }} />
-                        <div className="flex items-center gap-3 relative z-10">
-                            <div className="text-gray-500 group-hover:text-primary transition-colors duration-300">
-                                {CATEGORY_ICONS[link.category] || <ExternalLink size={20} />}
+                    <a ref={cardRef} href={link.url} target="_blank" rel="noreferrer" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} className="relative flex items-start justify-between p-4 bg-[#050507]/50 border border-white/10 hover:border-gold/40 transition-all duration-200 group overflow-hidden" style={{ transform: `perspective(1000px) rotateX(${rotation.x}deg) rotateY(${rotation.y}deg) scale3d(1, 1, 1)`, willChange: 'transform' }}>
+                        <div className="absolute -inset-px opacity-0 transition-opacity duration-300 pointer-events-none" style={{ opacity, background: `radial-gradient(400px circle at ${position.x}px ${position.y}px, rgba(255, 215, 0, 0.08), transparent 40%)` }} />
+                        <div className="relative z-10 flex-1">
+                            <div className="flex items-center gap-2 mb-1">
+                                <div className="text-gray-500 group-hover:text-gold transition-colors duration-300">
+                                    {CATEGORY_ICONS[link.category] || <ExternalLink size={18} />}
+                                </div>
+                                <span className="font-medium text-white text-sm group-hover:text-gold transition-colors">{link.name}</span>
                             </div>
-                            <span className="font-medium text-gray-300 group-hover:text-white transition-colors">{link.name}</span>
+                            <p className="text-[10px] text-gray-500 uppercase tracking-wider font-mono pl-6">{link.desc}</p>
                         </div>
-                        <ExternalLink size={16} className="text-gray-600 group-hover:text-primary opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300 relative z-10" />
+                        <ExternalLink size={14} className="text-gray-600 group-hover:text-gold opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300 relative z-10 mt-1" />
                     </a>
                 );
             };
@@ -781,13 +1300,16 @@
 
             return (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {Object.keys(grouped).map((category, idx) => (
+                    {Object.keys(grouped).map((category) => (
                         <div key={category} className="space-y-4">
-                            <div className="flex items-center gap-2 mb-2">
-                                <div className="p-1.5 bg-white/5 rounded-md text-primary">{CATEGORY_ICONS[category]}</div>
-                                <h3 className="text-lg font-bold font-mono text-gray-200 uppercase tracking-tight">{category}s</h3>
+                            <div className="flex items-center gap-3 mb-2 pb-3 border-b border-white/5">
+                                <div className="p-2 bg-gold/5 border border-gold/20 text-gold">{CATEGORY_ICONS[category]}</div>
+                                <div>
+                                    <h3 className="text-sm font-bold font-mono text-white uppercase tracking-widest">{category}s</h3>
+                                    <span className="text-[10px] text-gray-600 font-mono">{grouped[category].length} integration{grouped[category].length > 1 ? 's' : ''}</span>
+                                </div>
                             </div>
-                            <div className="grid gap-3">
+                            <div className="grid gap-2">
                                 {grouped[category].map((link) => <TiltLinkCard key={link.name} link={link} />)}
                             </div>
                         </div>
@@ -796,6 +1318,7 @@
             );
         };
 
+        // Balance Checker
         const BalanceChecker = () => {
             const [address, setAddress] = useState('');
             const [isFocused, setIsFocused] = useState(false);
@@ -807,23 +1330,30 @@
             };
 
             return (
-                <div className="w-full max-w-4xl mx-auto my-12 relative group perspective-1000">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-primary via-purple-600 to-blue-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200 animate-pulse-slow"></div>
-                    <div className="relative bg-[#0f0f13] border border-white/10 rounded-xl p-8 md:p-12 text-center overflow-hidden transition-transform duration-300 hover:scale-[1.01]">
+                <div className="w-full max-w-4xl mx-auto relative group">
+                    <div className="absolute -inset-1 bg-gradient-to-r from-gold via-primary to-accent-cyan blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200 animate-pulse-slow"></div>
+                    <div className="relative bg-[#0f0f13] border border-white/10 p-8 md:p-12 text-center overflow-hidden transition-transform duration-300 hover:scale-[1.01]">
                         <div className="absolute -top-10 -right-10 opacity-[0.03] pointer-events-none transform rotate-12 transition-transform duration-700 group-hover:rotate-0 group-hover:scale-110"><Wallet size={300} /></div>
                         <div className="relative z-10">
-                            <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">Check Your 𝛑 Balance</h3>
-                            <p className="text-gray-400 mb-8 max-w-lg mx-auto">Verify your holdings directly on Unisat by entering your Bitcoin wallet address below.</p>
+                            <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 border border-gold/30 bg-gold/5 text-[10px] font-mono font-bold text-gold uppercase tracking-widest">
+                                <Fingerprint size={10} /> Secure Wallet Lookup
+                            </div>
+                            <h3 className="text-3xl md:text-4xl font-serif text-white mb-3">Check Your 𝛑 Balance</h3>
+                            <p className="text-gray-400 mb-8 max-w-lg mx-auto">Verify your holdings directly on Unisat by entering your Bitcoin wallet address. Read-only. No keys required.</p>
                             <form onSubmit={checkBalance} className="flex flex-col md:flex-row gap-4 max-w-xl mx-auto relative">
-                                <div className={`relative flex-grow transition-all duration-300 ${isFocused ? 'scale-105' : 'scale-100'}`}>
-                                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none"><Search className={`h-5 w-5 transition-colors ${isFocused ? 'text-primary' : 'text-gray-500'}`} /></div>
-                                    <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} onFocus={() => setIsFocused(true)} onBlur={() => setIsFocused(false)} className="block w-full pl-11 pr-4 py-4 border border-white/10 rounded-xl leading-5 bg-[#050507]/80 text-gray-100 placeholder-gray-500 focus:outline-none focus:bg-[#050507] focus:border-primary focus:ring-2 focus:ring-primary/50 sm:text-sm transition-all shadow-inner" placeholder="Enter your BTC address (bc1...)" />
+                                <div className={`relative flex-grow transition-all duration-300`}>
+                                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                        <Search className={`h-5 w-5 transition-colors ${isFocused ? 'text-gold' : 'text-gray-500'}`} />
+                                    </div>
+                                    <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} onFocus={() => setIsFocused(true)} onBlur={() => setIsFocused(false)} className="block w-full pl-11 pr-4 py-4 border border-white/10 leading-5 bg-[#050507]/80 text-gray-100 placeholder-gray-500 focus:outline-none focus:bg-[#050507] focus:border-gold focus:ring-2 focus:ring-gold/30 sm:text-sm transition-all font-mono" placeholder="Enter your BTC address (bc1...)" aria-label="Bitcoin address" />
                                 </div>
-                                <button type="submit" className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-medium rounded-xl text-white bg-primary hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary shadow-[0_0_20px_rgba(108,92,231,0.3)] hover:shadow-[0_0_30px_rgba(108,92,231,0.5)] transition-all transform hover:-translate-y-1 active:translate-y-0">Check Now <ArrowRight className="ml-2 -mr-1 h-5 w-5" /></button>
+                                <button type="submit" className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-black bg-gold hover:bg-gold-dim focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold shadow-[0_0_20px_rgba(255,215,0,0.3)] hover:shadow-[0_0_30px_rgba(255,215,0,0.5)] transition-all transform hover:-translate-y-1 active:translate-y-0 font-mono uppercase tracking-widest text-xs">
+                                    Query <ArrowRight className="ml-2 h-4 w-4" />
+                                </button>
                             </form>
                             {!address && (
                                 <div className="mt-6 flex items-center justify-center gap-2 text-xs text-gray-600 animate-bounce">
-                                    <CornerRightDown size={14} /><span>Try entering your address above</span>
+                                    <CornerRightDown size={14} /><span className="font-mono uppercase tracking-widest">Try your wallet address</span>
                                 </div>
                             )}
                         </div>
@@ -832,6 +1362,7 @@
             );
         };
 
+        // Reveal on scroll wrapper
         const RevealOnScroll = ({ children, className = '', delay = 0 }) => {
             const ref = useRef(null);
             const [isVisible, setIsVisible] = useState(false);
@@ -846,20 +1377,35 @@
                 return () => observer.disconnect();
             }, []);
             return (
-                <div ref={ref} className={`transition-all duration-1000 cubic-bezier(0.2, 0.8, 0.2, 1) transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} ${className}`} style={{ transitionDelay: `${delay}ms` }}>
+                <div ref={ref} className={`transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} ${className}`} style={{ transitionDelay: `${delay}ms` }}>
                     {children}
                 </div>
             );
         };
 
-        const Section = ({ id, title, children }) => (
-            <section id={id} className="py-20 md:py-32 relative">
+        // Section wrapper
+        const Section = ({ id, title, subtitle, kicker, children, className = '' }) => (
+            <section id={id} className={`py-20 md:py-32 relative ${className}`}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <RevealOnScroll>
-                        <div className="flex items-center gap-4 mb-16 group">
-                            <div className="h-px w-8 bg-primary group-hover:w-16 transition-all duration-500"></div>
-                            <h2 className="text-2xl md:text-4xl font-bold font-mono text-white tracking-tight uppercase">{title}</h2>
-                            <div className="h-px flex-1 bg-white/10 group-hover:bg-white/20 transition-colors"></div>
+                        <div className="mb-16 md:mb-20">
+                            {kicker && (
+                                <div className="flex items-center gap-3 mb-4">
+                                    <span className="h-px w-8 bg-gold"></span>
+                                    <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-gold">{kicker}</span>
+                                </div>
+                            )}
+                            <div className="flex items-end justify-between gap-8 flex-wrap">
+                                <h2 className="text-4xl md:text-6xl font-serif text-white tracking-tight leading-none">
+                                    {title}
+                                </h2>
+                                {subtitle && (
+                                    <p className="text-sm md:text-base text-gray-400 font-mono max-w-md leading-relaxed">
+                                        {subtitle}
+                                    </p>
+                                )}
+                            </div>
+                            <div className="h-px w-full bg-gradient-to-r from-white/20 via-white/5 to-transparent mt-8"></div>
                         </div>
                     </RevealOnScroll>
                     <RevealOnScroll delay={100}>{children}</RevealOnScroll>
@@ -867,110 +1413,321 @@
             </section>
         );
 
-        // 5. App Layout
-        const App = () => {
-            const [heroLoaded, setHeroLoaded] = useState(false);
-            useEffect(() => { setHeroLoaded(true); }, []);
+        // Hero Section
+        const Hero = () => {
+            const [loaded, setLoaded] = useState(false);
+            useEffect(() => { setLoaded(true); }, []);
             const currentPrice = CHART_DATA[CHART_DATA.length - 1].price;
 
-            return (
-                <div className="min-h-screen relative font-sans text-gray-200 selection:bg-primary/30 selection:text-white transition-colors duration-1000">
-                    <Background />
-                    <div className="fixed top-0 left-0 w-full h-full pointer-events-none scanlines z-40"></div>
-                    <div className="fixed top-0 left-0 w-full h-full pointer-events-none bg-noise z-30"></div>
-                    
-                    <Navbar />
+            // Decorative pi digits string
+            const piDigits = "3.14159265358979323846264338327950288419716939937510";
 
-                    <main className="relative z-10 backdrop-brightness-[0.85] transition-all duration-1000">
-                        <div className="relative pt-32 pb-24 md:pt-48 md:pb-32 overflow-hidden min-h-[90vh] flex flex-col justify-center">
-                            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-                                <div className="flex flex-col items-center text-center">
-                                    <div className={`transition-all duration-1000 delay-100 transform ${heroLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 text-xs font-mono font-bold text-primary mb-8 backdrop-blur-sm tracking-widest uppercase shadow-[0_0_20px_rgba(108,92,231,0.2)]">
-                                            <Zap size={12} className="fill-primary animate-pulse" />BRC-20 Standard Protocol
-                                        </div>
+            return (
+                <div className="relative pt-20 pb-24 md:pt-32 md:pb-40 overflow-hidden min-h-[95vh] flex flex-col justify-center">
+                    {/* Decorative floating pi digits */}
+                    <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+                        {[...Array(8)].map((_, i) => (
+                            <div
+                                key={i}
+                                className="absolute text-gold/20 font-mono text-xs drift"
+                                style={{
+                                    left: `${Math.random() * 100}%`,
+                                    bottom: '-20px',
+                                    animationDelay: `${i * 2}s`,
+                                    animationDuration: `${15 + Math.random() * 10}s`,
+                                }}
+                            >
+                                {piDigits.substring(Math.floor(Math.random() * 30), Math.floor(Math.random() * 30) + 15)}
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Perspective grid fade */}
+                    <div className="absolute inset-0 perspective-grid opacity-30 gradient-mask-b" aria-hidden="true"></div>
+
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+                        <div className="flex flex-col items-center text-center">
+
+                            {/* Badge */}
+                            <div className={`transition-all duration-1000 delay-100 transform ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                                <div className="inline-flex items-center gap-3 px-4 py-2 border border-gold/30 bg-gold/5 text-[10px] font-mono font-bold text-gold mb-8 backdrop-blur-sm tracking-[0.3em] uppercase shadow-[0_0_20px_rgba(255,215,0,0.15)]">
+                                    <span className="relative flex h-2 w-2">
+                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold opacity-75"></span>
+                                        <span className="relative inline-flex rounded-full h-2 w-2 bg-gold"></span>
+                                    </span>
+                                    BRC-20 · Deploy #5496738 · Mint Complete
+                                </div>
+                            </div>
+
+                            {/* Main π */}
+                            <div className={`transition-all duration-1000 delay-300 transform ${loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+                                <h1 className="relative mb-4 leading-none">
+                                    <span className="block text-xs md:text-sm font-mono uppercase tracking-[0.5em] text-gray-500 mb-8">The Original Math-Based Token</span>
+                                    <span className="text-[12rem] md:text-[20rem] font-serif text-transparent bg-clip-text bg-gradient-to-b from-gold via-gold-dim to-gold-deep glitch-text relative inline-block text-shadow-gold" style={{ lineHeight: '0.8' }}>
+                                        𝛑
+                                    </span>
+                                </h1>
+                            </div>
+
+                            {/* Pi digits display */}
+                            <div className={`transition-all duration-1000 delay-500 transform ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} mt-4`}>
+                                <div className="font-mono text-[10px] md:text-xs text-gray-600 tracking-widest max-w-2xl overflow-hidden whitespace-nowrap">
+                                    <span className="text-gold/60">π = </span>
+                                    3.14159265358979323846264338327950288419716939937510582097494459230...
+                                </div>
+                            </div>
+
+                            {/* Tagline */}
+                            <div className={`transition-all duration-1000 delay-700 transform ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} mt-10 max-w-3xl`}>
+                                <p className="text-lg md:text-2xl text-white font-serif leading-snug mb-4">
+                                    Inscribed on Bitcoin. Capped at <span className="text-gold">3.141592653589793</span> quadrillion units.
+                                </p>
+                                <p className="text-sm md:text-base text-gray-400 font-mono leading-relaxed">
+                                    Fair launch · Zero pre-mine · Fully minted · Permanently immutable
+                                </p>
+                            </div>
+
+                            {/* CTAs */}
+                            <div className={`flex flex-col sm:flex-row gap-4 w-full sm:w-auto transition-all duration-1000 delay-[900ms] transform ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} mt-12`}>
+                                <a href="#trade" className="group relative px-8 py-4 bg-gold text-black text-center font-bold font-mono text-xs uppercase tracking-[0.3em] overflow-hidden hover:shadow-[0_0_30px_rgba(255,215,0,0.5)] transition-all duration-300">
+                                    <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/40 to-white/0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
+                                    <span className="relative z-10 flex items-center justify-center gap-2">Open Market <ArrowRight size={14} /></span>
+                                </a>
+                                <a href="#features" className="px-8 py-4 bg-black/40 backdrop-blur-sm border border-white/20 text-white text-center font-bold font-mono text-xs uppercase tracking-[0.3em] hover:border-white hover:bg-white/10 transition-all">Learn More</a>
+                            </div>
+
+                            {/* Stats bar */}
+                            <div className={`mt-24 w-full max-w-5xl border-y border-white/10 bg-black/60 backdrop-blur-xl transition-all duration-1000 delay-[1100ms] transform ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                                <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
+                                    <div className="p-5 flex flex-col items-center group cursor-default hover:bg-gold/5 transition-colors">
+                                        <span className="text-[10px] text-gray-400 font-mono uppercase tracking-widest mb-2 group-hover:text-gold transition-colors">Last Price</span>
+                                        <span className="text-xl md:text-2xl font-mono font-bold text-white">{currentPrice.toLocaleString()}</span>
+                                        <span className="text-[10px] text-gray-600 font-mono">SATS</span>
                                     </div>
-                                    <div className={`transition-all duration-1000 delay-300 transform ${heroLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-                                        <h1 className="text-7xl md:text-[10rem] font-bold text-white mb-6 tracking-tighter leading-[0.9] mix-blend-screen relative z-10">
-                                             <br className="md:hidden" /> <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#FFD700] to-[#B8860B] glitch-text relative inline-block" style={{ textShadow: '0 0 50px rgba(255, 215, 0, 0.4)' }}>𝛑</span>
-                                        </h1>
+                                    <div className="p-5 flex flex-col items-center group cursor-default hover:bg-gold/5 transition-colors">
+                                        <span className="text-[10px] text-gray-400 font-mono uppercase tracking-widest mb-2 group-hover:text-gold transition-colors">Market Cap</span>
+                                        <span className="text-xl md:text-2xl font-mono font-bold text-white">$160M+</span>
+                                        <span className="text-[10px] text-accent-green font-mono">+2.4% 24H</span>
                                     </div>
-                                    <p className={`text-lg md:text-xl text-gray-200 shadow-black drop-shadow-md max-w-2xl mx-auto mb-12 font-mono leading-relaxed transition-all duration-1000 delay-500 transform ${heroLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                                        The original math-based token on Bitcoin. <br/> <span className="text-white font-medium">Fair Launch. Immutable. Decentralized.</span>
-                                    </p>
-                                    <div className={`flex flex-col sm:flex-row gap-4 w-full sm:w-auto transition-all duration-1000 delay-700 transform ${heroLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                                        <a href="#trade" className="group relative px-8 py-4 bg-white text-black text-center font-bold font-mono text-sm uppercase tracking-wider overflow-hidden rounded hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] transition-all duration-300">
-                                            <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
-                                            <span className="relative z-10 flex items-center justify-center gap-2">Initialize Trade <ArrowRight size={16} /></span>
-                                        </a>
-                                        <a href="#ecosystem" className="px-8 py-4 bg-black/40 backdrop-blur-sm border border-white/20 text-white text-center font-bold font-mono text-sm uppercase tracking-wider hover:border-white hover:bg-white/10 transition-all rounded hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]">System Links</a>
+                                    <div className="p-5 flex flex-col items-center group cursor-default hover:bg-gold/5 transition-colors">
+                                        <span className="text-[10px] text-gray-400 font-mono uppercase tracking-widest mb-2 group-hover:text-gold transition-colors">Holders</span>
+                                        <span className="text-xl md:text-2xl font-mono font-bold text-white">120,591</span>
+                                        <span className="text-[10px] text-accent-green font-mono">+127 TODAY</span>
                                     </div>
-                                    <div className={`mt-24 w-full max-w-5xl border-y border-white/10 bg-black/60 backdrop-blur-xl transition-all duration-1000 delay-1000 transform ${heroLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                                        <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
-                                            <div className="p-5 flex flex-col items-center group cursor-default hover:bg-white/5 transition-colors">
-                                                <span className="text-[10px] text-gray-400 font-mono uppercase tracking-widest mb-1 group-hover:text-primary transition-colors">Price</span>
-                                                <span className="text-xl font-mono font-bold text-white">{currentPrice} <span className="text-sm text-gray-500">SATS</span></span>
-                                            </div>
-                                            <div className="p-5 flex flex-col items-center group cursor-default hover:bg-white/5 transition-colors">
-                                                <span className="text-[10px] text-gray-400 font-mono uppercase tracking-widest mb-1 group-hover:text-primary transition-colors">Market Cap</span>
-                                                <span className="text-xl font-mono font-bold text-white">$160M+</span>
-                                            </div>
-                                            <div className="p-5 flex flex-col items-center group cursor-default hover:bg-white/5 transition-colors">
-                                                <span className="text-[10px] text-gray-400 font-mono uppercase tracking-widest mb-1 group-hover:text-primary transition-colors">Holders</span>
-                                                <span className="text-xl font-mono font-bold text-white">120,591</span>
-                                            </div>
-                                             <div className="p-5 flex flex-col items-center group cursor-default hover:bg-white/5 transition-colors">
-                                                <span className="text-[10px] text-gray-400 font-mono uppercase tracking-widest mb-1 group-hover:text-primary transition-colors">Supply</span>
-                                                <span className="text-xl font-mono font-bold text-white">3.14P</span>
-                                            </div>
-                                        </div>
+                                    <div className="p-5 flex flex-col items-center group cursor-default hover:bg-gold/5 transition-colors">
+                                        <span className="text-[10px] text-gray-400 font-mono uppercase tracking-widest mb-2 group-hover:text-gold transition-colors">Supply</span>
+                                        <span className="text-xl md:text-2xl font-mono font-bold text-white">3.14P</span>
+                                        <span className="text-[10px] text-gold font-mono">100% LOCKED</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            );
+        };
 
-                        <Section id="token-info" title="System Status"><TokenInfo /></Section>
-                        <Section id="statistics" title="Network Distribution"><div className="w-full"><HoldersTable /></div></Section>
-                        <Section id="trade" title="Market Terminal">
-                            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        // App
+        const App = () => {
+            return (
+                <div className="min-h-screen relative font-sans text-gray-200">
+                    <Background />
+                    <ScrollProgress />
+                    <BackToTop />
+                    <div className="fixed top-0 left-0 w-full h-full pointer-events-none scanlines z-40"></div>
+                    <div className="fixed top-0 left-0 w-full h-full pointer-events-none bg-noise z-30"></div>
+
+                    <Navbar />
+                    <LiveTicker />
+
+                    <main className="relative z-10 backdrop-brightness-[0.85]">
+                        <Hero />
+
+                        <Section
+                            id="features"
+                            title="Why 𝛑"
+                            kicker="System Overview"
+                            subtitle="Six pillars that define the token's architecture, economics, and permanence on Bitcoin."
+                        >
+                            <Features />
+                        </Section>
+
+                        <Section
+                            id="token-info"
+                            title="Protocol Layer"
+                            kicker="Tokenomics"
+                            subtitle="All parameters are inscribed on Bitcoin mainnet. None can be altered, upgraded, or rewritten by any entity — ever."
+                        >
+                            <TokenInfo />
+                        </Section>
+
+                        <Section
+                            id="statistics"
+                            title="Network State"
+                            kicker="Distribution"
+                            subtitle="Live breakdown of the top 𝛑 addresses and their share of circulating supply across Bitcoin."
+                        >
+                            <HoldersTable />
+                        </Section>
+
+                        <Section
+                            id="trade"
+                            title="Market Terminal"
+                            kicker="Live Price Feed"
+                            subtitle="Satoshis per token, historical chart, and routing to primary liquidity venues."
+                        >
+                            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                                 <div className="lg:col-span-2"><PriceChart /></div>
                                 <div className="flex flex-col gap-6">
-                                    <div className="bg-[#0f0f13] border border-white/10 p-1 flex flex-col h-full relative group transition-all hover:border-white/20">
-                                        <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-primary/50"></div>
-                                        <div className="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 border-primary/50"></div>
-                                        <div className="absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 border-primary/50"></div>
-                                        <div className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-primary/50"></div>
+                                    <div className="bg-[#0f0f13] border border-white/10 p-1 flex flex-col h-full relative group transition-all hover:border-gold/30">
+                                        <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-gold/50"></div>
+                                        <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-gold/50"></div>
+                                        <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-gold/50"></div>
+                                        <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-gold/50"></div>
                                         <div className="bg-black/40 h-full p-8 flex flex-col justify-center text-center relative z-10 backdrop-blur-sm">
-                                            <div className="w-16 h-16 mx-auto bg-primary/10 border border-primary/30 rounded-2xl flex items-center justify-center mb-6 text-primary shadow-[0_0_30px_rgba(108,92,231,0.2)]"><Terminal size={32} /></div>
-                                            <h3 className="text-2xl font-bold font-mono text-white mb-2 uppercase">Execute Order</h3>
-                                            <p className="text-gray-500 mb-8 font-mono text-xs">Route orders through decentralized Bitcoin layers.</p>
-                                            <div className="space-y-4">
-                                                <a href="https://unisat.io/market/brc20?tick=%F0%9D%9B%91" target="_blank" rel="noreferrer" className="w-full py-4 bg-[#f7931a] hover:bg-[#ffaa40] text-black font-bold font-mono uppercase tracking-wide transition-all shadow-[0_0_20px_rgba(247,147,26,0.3)] hover:shadow-[0_0_30px_rgba(247,147,26,0.5)] flex items-center justify-center gap-2 transform hover:-translate-y-1 rounded-sm">Unisat Market <ExternalLink size={14} /></a>
-                                                <a href="https://www.superex.com/trade/%F0%9D%9B%91_USDT" target="_blank" rel="noreferrer" className="w-full py-4 bg-primary hover:bg-primary-hover text-white font-bold font-mono uppercase tracking-wide transition-all shadow-[0_0_20px_rgba(108,92,231,0.3)] hover:shadow-[0_0_30px_rgba(108,92,231,0.5)] flex items-center justify-center gap-2 transform hover:-translate-y-1 rounded-sm">SuperEX Exchange <ExternalLink size={14} /></a>
+                                            <div className="w-16 h-16 mx-auto bg-gold/10 border border-gold/30 flex items-center justify-center mb-6 text-gold shadow-[0_0_30px_rgba(255,215,0,0.2)]">
+                                                <Terminal size={28} />
+                                            </div>
+                                            <h3 className="text-2xl font-serif text-white mb-2">Execute Order</h3>
+                                            <p className="text-gray-500 mb-8 font-mono text-xs uppercase tracking-widest">Route through Bitcoin-native venues</p>
+                                            <div className="space-y-3">
+                                                <a href="https://unisat.io/market/brc20?tick=%F0%9D%9B%91" target="_blank" rel="noreferrer" className="w-full py-4 bg-[#f7931a] hover:bg-[#ffaa40] text-black font-bold font-mono uppercase tracking-widest text-xs transition-all shadow-[0_0_20px_rgba(247,147,26,0.3)] hover:shadow-[0_0_30px_rgba(247,147,26,0.5)] flex items-center justify-center gap-2 transform hover:-translate-y-1">
+                                                    <Bitcoin size={14} /> Unisat Market <ExternalLink size={12} />
+                                                </a>
+                                                <a href="https://web3.okx.com/explorer/bitcoin/token/brc20/5496738?channelId=unisat" target="_blank" rel="noreferrer" className="w-full py-4 bg-white hover:bg-gray-200 text-black font-bold font-mono uppercase tracking-widest text-xs transition-all flex items-center justify-center gap-2 transform hover:-translate-y-1">
+                                                    OKX Web3 <ExternalLink size={12} />
+                                                </a>
+                                                <a href="https://www.superex.com/trade/%F0%9D%9B%91_USDT" target="_blank" rel="noreferrer" className="w-full py-4 bg-primary hover:bg-primary-hover text-white font-bold font-mono uppercase tracking-widest text-xs transition-all shadow-[0_0_20px_rgba(108,92,231,0.3)] hover:shadow-[0_0_30px_rgba(108,92,231,0.5)] flex items-center justify-center gap-2 transform hover:-translate-y-1">
+                                                    SuperEX CEX <ExternalLink size={12} />
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </Section>
-                        <Section id="balance-checker" title="Balance Query"><BalanceChecker /></Section>
-                        <Section id="ecosystem" title="Ecosystem Uplink"><Ecosystem /></Section>
+
+                        <Section
+                            id="how-to-buy"
+                            title="Acquisition Protocol"
+                            kicker="Six Steps"
+                            subtitle="From empty wallet to verified 𝛑 holder. A concise walkthrough for new participants in the Bitcoin ordinals economy."
+                        >
+                            <HowToBuy />
+                        </Section>
+
+                        <Section
+                            id="balance-checker"
+                            title="Wallet Query"
+                            kicker="On-Chain Verification"
+                            subtitle="Look up any Bitcoin address to verify its 𝛑 holdings via UniSat's read-only explorer."
+                        >
+                            <BalanceChecker />
+                        </Section>
+
+                        <Section
+                            id="roadmap"
+                            title="Timeline"
+                            kicker="Milestones"
+                            subtitle="The chronology of 𝛑 — from genesis inscription to fully-minted global asset, and the open road ahead."
+                        >
+                            <Roadmap />
+                        </Section>
+
+                        <Section
+                            id="faq"
+                            title="Frequently Asked"
+                            kicker="Documentation"
+                            subtitle="Everything newcomers ask about the token, the protocol, and how to participate safely."
+                        >
+                            <FAQ />
+                        </Section>
+
+                        <Section
+                            id="ecosystem"
+                            title="Ecosystem"
+                            kicker="Integrations"
+                            subtitle="Every marketplace, wallet, explorer, and community resource that supports the 𝛑 asset across the Bitcoin economy."
+                        >
+                            <Ecosystem />
+                        </Section>
+
                     </main>
 
-                    <footer className="bg-[#050507] border-t border-white/5 py-12 relative z-10">
-                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                            <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-                                <div className="flex flex-col items-center md:items-start gap-2">
-                                    <span className="text-2xl font-bold font-mono text-white tracking-widest"></span>
-                                    <p className="text-gray-600 text-xs font-mono">BRC-20 PROTOCOL // ID: 325bd9...</p>
+                    {/* Footer */}
+                    <footer className="bg-[#050507] border-t border-white/10 relative z-10">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                            <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                                <div className="md:col-span-2">
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <span className="text-5xl font-serif text-gold glitch-text leading-none">𝛑</span>
+                                        <div>
+                                            <span className="text-sm font-bold tracking-[0.2em] text-white uppercase font-mono block">Pi Coin</span>
+                                            <span className="text-[10px] text-gray-500 font-mono uppercase tracking-widest">BRC-20 · Bitcoin Native</span>
+                                        </div>
+                                    </div>
+                                    <p className="text-sm text-gray-400 leading-relaxed max-w-md mb-6">
+                                        The original math-based token on Bitcoin. Max supply: 3,141,592,653,589,793. Fair launch. 100% minted. Forever immutable.
+                                    </p>
+                                    <div className="flex gap-3">
+                                        <a href="https://x.com/pi3141s" target="_blank" rel="noreferrer" aria-label="Twitter" className="w-10 h-10 border border-white/10 hover:border-gold hover:bg-gold hover:text-black flex items-center justify-center text-gray-400 transition-all">
+                                            <Twitter size={16} />
+                                        </a>
+                                        <a href="https://t.me/brc20picoin" target="_blank" rel="noreferrer" aria-label="Telegram" className="w-10 h-10 border border-white/10 hover:border-primary hover:bg-primary hover:text-white flex items-center justify-center text-gray-400 transition-all">
+                                            <Send size={16} />
+                                        </a>
+                                        <a href="https://unisat.io/brc20/%F0%9D%9B%91" target="_blank" rel="noreferrer" aria-label="UniSat" className="w-10 h-10 border border-white/10 hover:border-white hover:bg-white hover:text-black flex items-center justify-center text-gray-400 transition-all">
+                                            <Bitcoin size={16} />
+                                        </a>
+                                    </div>
                                 </div>
-                                <div className="flex gap-6">
-                                    <a href="https://x.com/pi3141s" target="_blank" rel="noreferrer" className="p-2 text-gray-500 hover:text-white hover:bg-white/10 rounded-full transition-all"><Twitter size={20} /></a>
-                                    <a href="https://t.me/brc20picoin" target="_blank" rel="noreferrer" className="p-2 text-gray-500 hover:text-blue-400 hover:bg-blue-400/10 rounded-full transition-all"><ExternalLink size={20} /></a>
+                                <div>
+                                    <h4 className="text-[10px] font-mono font-bold text-gold uppercase tracking-[0.3em] mb-4">Navigate</h4>
+                                    <ul className="space-y-2">
+                                        {[
+                                            { name: 'About', href: '#features' },
+                                            { name: 'Tokenomics', href: '#token-info' },
+                                            { name: 'Market', href: '#trade' },
+                                            { name: 'Holders', href: '#statistics' },
+                                            { name: 'Roadmap', href: '#roadmap' },
+                                            { name: 'FAQ', href: '#faq' },
+                                        ].map(l => (
+                                            <li key={l.name}>
+                                                <a href={l.href} className="text-sm text-gray-400 hover:text-gold transition-colors font-mono">{l.name}</a>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 className="text-[10px] font-mono font-bold text-gold uppercase tracking-[0.3em] mb-4">Resources</h4>
+                                    <ul className="space-y-2">
+                                        <li><a href="https://unisat.io/brc20/%F0%9D%9B%91" target="_blank" rel="noreferrer" className="text-sm text-gray-400 hover:text-gold transition-colors font-mono flex items-center gap-1">UniSat <ExternalLink size={10} /></a></li>
+                                        <li><a href="https://web3.okx.com/explorer/bitcoin/token/brc20/5496738?channelId=unisat" target="_blank" rel="noreferrer" className="text-sm text-gray-400 hover:text-gold transition-colors font-mono flex items-center gap-1">OKX Explorer <ExternalLink size={10} /></a></li>
+                                        <li><a href="https://magiceden.io/ordinals" target="_blank" rel="noreferrer" className="text-sm text-gray-400 hover:text-gold transition-colors font-mono flex items-center gap-1">Magic Eden <ExternalLink size={10} /></a></li>
+                                        <li><a href="https://www.superex.com" target="_blank" rel="noreferrer" className="text-sm text-gray-400 hover:text-gold transition-colors font-mono flex items-center gap-1">SuperEX <ExternalLink size={10} /></a></li>
+                                        <li><a href="https://ordinals.com" target="_blank" rel="noreferrer" className="text-sm text-gray-400 hover:text-gold transition-colors font-mono flex items-center gap-1">Ordinals.com <ExternalLink size={10} /></a></li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div className="mt-12 text-center border-t border-white/5 pt-8">
-                                <p className="text-[10px] text-gray-700 font-mono uppercase tracking-widest hover:text-primary transition-colors cursor-default">Decentralized • Immutable • Math-Based</p>
+
+                            {/* Bottom ribbon */}
+                            <div className="pt-8 border-t border-white/5 grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+                                <p className="text-[10px] text-gray-600 font-mono uppercase tracking-widest">
+                                    © 2023–{new Date().getFullYear()} 𝛑 Community · No team · No foundation
+                                </p>
+                                <p className="text-[10px] text-gray-600 font-mono text-center tracking-widest">
+                                    DEPLOY #5496738 · 325bd9...f2f93i0
+                                </p>
+                                <p className="text-[10px] text-gold/80 font-mono uppercase tracking-[0.3em] text-right">
+                                    Math. Bitcoin. Forever.
+                                </p>
+                            </div>
+
+                            {/* Disclaimer */}
+                            <div className="mt-8 p-4 border border-white/5 bg-black/40">
+                                <p className="text-[10px] text-gray-600 font-mono leading-relaxed">
+                                    <span className="text-gold font-bold uppercase tracking-widest">Disclaimer:</span> This website is an informational community resource for the 𝛑 BRC-20 token. It is not financial advice, investment guidance, or a solicitation. BRC-20 tokens are highly volatile experimental assets. Always verify contract details on-chain, do your own research, and never invest more than you can afford to lose. No entity, team, or foundation controls this asset — it is fully decentralized and community-operated.
+                                </p>
                             </div>
                         </div>
                     </footer>
@@ -981,6 +1738,5 @@
         const root = createRoot(document.getElementById('root'));
         root.render(<App />);
     </script>
-<script type="module" src="/index.tsx"></script>
 </body>
 </html>
